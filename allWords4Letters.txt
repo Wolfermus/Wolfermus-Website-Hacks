@@ -1089,7 +1089,6 @@ baft
 babe
 habu
 berm
-blag
 coca
 cobs
 brow
@@ -5057,7 +5056,6 @@ humf
 hups
 huso
 hyed
-hyen
 hyes
 hyke
 hyle
@@ -5365,7 +5363,6 @@ pene
 peni
 penk
 pern
-phoh
 piet
 pila
 pioy
