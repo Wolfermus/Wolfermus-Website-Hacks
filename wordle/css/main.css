@@ -1,0 +1,103 @@
+/* CSS Document */
+
+body {
+	margin: 0;
+	font-family: "Work Sans", sans-serif;
+	font-weight: 400;
+	line-height: 1.5;
+	background: #222222
+}
+
+.wlfContainer {
+	margin: 0;
+	font-family: "Work Sans", sans-serif;
+	font-weight: 400;
+	line-height: 1.5;
+	background: #009578;
+	box-shadow: 0 0 5px 5px rgba(0, 149, 120, 1);
+}
+
+.wlfContainer::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.wlfWrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.wlfLogo {
+	float: left;
+	padding: 10px 0;
+	height: 120px;
+}
+
+.wlfNav {
+	height: 100px;
+	color: #ffffff;
+	float: right;
+}
+
+.wlfNav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	place-items: cent
+}
+
+.wlfNav li {
+	display: inline-block;
+	margin-left: 70px;
+	padding-top: 53px;
+	
+	position: relative;
+}
+
+.wlfNav a {
+	color: #444;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+.wlfNav a:hover {
+	color: #000;
+}
+
+.wlfNav a::before {
+	content: "";
+	display: block;
+	border-radius: 50%;
+	height: 5px;
+	background-color: #007960;
+	
+	
+	position: absolute;
+	width: 0%;
+	
+	transition: all ease-in-out 250ms;
+}
+
+.wlfNav a::after {
+	content: "";
+	display: block;
+	border-radius: 50%;
+	height: 5px;
+	background-color: #007960;
+	
+	
+	position: absolute;
+	width: 0%;
+	
+	transition: all ease-in-out 250ms;
+}
+
+.wlfNav a:hover::before {
+	width: 100%;
+}
+
+.wlfNav a:hover::after {
+	width: 100%;
+}

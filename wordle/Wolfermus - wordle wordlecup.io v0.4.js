@@ -1,3 +1,5 @@
+const mainURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/wordBank/"
+
 function sleep(ms){
     return new Promise(resolve=>{
         setTimeout(resolve,ms)
@@ -39,19 +41,19 @@ document.getElementById("root").prepend(inputBox);
 var response = null;
 
 (async function(){
-	response = await (await fetch('https://raw.githubusercontent.com/feb199/Lots-Of-Words/main/allWords4Letters.txt')).text();
+	response = await (await fetch(`${mainURL}allWords4Letters.txt`)).text();
 	allWords[4] = await response.toString().split("\n");
 	
-	response = await (await fetch('https://raw.githubusercontent.com/feb199/Lots-Of-Words/main/allWords5Letters.txt')).text();
+	response = await (await fetch(`${mainURL}allWords5Letters.txt`)).text();
 	allWords[5] = await response.toString().split("\n");
 	
-	response = await (await fetch('https://raw.githubusercontent.com/feb199/Lots-Of-Words/main/allWords6Letters.txt')).text();
+	response = await (await fetch(`${mainURL}allWords6Letters.txt`)).text();
 	allWords[6] = await response.toString().split("\n");
 	
-	response = await (await fetch('https://raw.githubusercontent.com/feb199/Lots-Of-Words/main/allWords7Letters.txt')).text();
+	response = await (await fetch(`${mainURL}allWords7Letters.txt`)).text();
 	allWords[7] = await response.toString().split("\n");
 	
-	response = await (await fetch('https://raw.githubusercontent.com/feb199/Lots-Of-Words/main/allWords8Letters.txt')).text();
+	response = await (await fetch(`${mainURL}allWords8Letters.txt`)).text();
 	allWords[8] = await response.toString().split("\n");
 })();
 
