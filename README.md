@@ -1,3 +1,3 @@
-# Lots-Of-Words
+# Wolfermus-Website-Hacks
 
-This Repo contains a lot of words listing from 4 to 8 chars long
+This Repo contains website hacks that i have created and wanted to share
