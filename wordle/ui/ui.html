@@ -1,24 +1,24 @@
 <div class="wlfContainer">
 	<script>
 		function autoModeToggle() {
-			if(auto != null) {
-				if(auto) {
-					auto = false;
+			if(autoMode != null) {
+				if(autoMode) {
+					autoMode = false;
 					document.getElementById("autoOutput").innerHTML = "Auto Mode [Disabled]";
 				} else {
-					auto = true;
+					autoMode = true;
 					document.getElementById("autoOutput").innerHTML = "Auto Mode [Enabled]";
 				}
 			}
 		}
 		
 		function debugModeToggle() {
-			if(debug != null) {
-				if(debug) {
-					debug = false;
+			if(debugMode != null) {
+				if(debugMode) {
+					debugMode = false;
 					document.getElementById("debugOutput").innerHTML = "Debug Mode [Disabled]";
 				} else {
-					debug = true;
+					debugMode = true;
 					document.getElementById("debugOutput").innerHTML = "Debug Mode [Enabled]";
 				}
 			}
