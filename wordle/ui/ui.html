@@ -1,4 +1,29 @@
 <div class="wlfContainer">
+	<script>
+		function autoModeToggle() {
+			if(auto != null) {
+				if(auto) {
+					auto = false;
+					document.getElementById("autoOutput").innerHTML = "Auto Mode [Disabled]";
+				} else {
+					auto = true;
+					document.getElementById("autoOutput").innerHTML = "Auto Mode [Enabled]";
+				}
+			}
+		}
+		
+		function debugModeToggle() {
+			if(debug != null) {
+				if(debug) {
+					debug = false;
+					document.getElementById("debugOutput").innerHTML = "Debug Mode [Disabled]";
+				} else {
+					debug = true;
+					document.getElementById("debugOutput").innerHTML = "Debug Mode [Enabled]";
+				}
+			}
+		}
+	</script>
 	<div class="wlfWrapper">
 		<link rel="stylesheet" href="https://raw.githack.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/css/main.css">
 <!--		<link rel="stylesheet" href="../css/main.css">-->
@@ -9,14 +34,8 @@
 
 		<nav class="wlfNav">
 			<ul class="wlfUl">
-				<li><a href="#">home</a></li>
-				<li><a href="#">[wip]</a></li>
-				<li><a href="#">[wip]</a></li>
-				<li><a href="#">[wip]</a></li>
-				<li><a href="#">[wip]</a></li>
-				<li><a href="#">[wip]</a></li>
-				<li><a href="#">[wip]</a></li>
-				<li><a href="#">[wip]</a></li>
+				<li><a href="#" id="autoOutput">Auto Mode [Disabled]</a></li>
+				<li><a href="#" id="debugOutput">Debug Mode [Disabled]</a></li>
 				<li><a href="#">[wip]</a></li>
 				<li><a href="#">[wip]</a></li>
 			</ul>
