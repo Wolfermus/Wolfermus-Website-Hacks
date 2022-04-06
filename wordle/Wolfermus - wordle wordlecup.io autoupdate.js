@@ -8,33 +8,35 @@ function sleep(ms){
 }
 
 
-var interact = {};
-var allWords = {};
-var notValidWord = [];
+interact = {};
+allWords = {};
+notValidWord = [];
 
-var debug = false;
-var auto = false;
+debugMode = false;
+autoMode = false;
 
-var wordlecupActive = true;
-var gameStatus = 0;
-var bypassGameStatus = false;
-var currentRow = 0;
-var oldRow = 0
-var rowLength = null;
-var gameData = {
+wordlecupActive = true;
+gameStatus = 0;
+bypassGameStatus = false;
+currentRow = 0;
+oldRow = 0
+rowLength = null;
+gameData = {
 	lettersCorrect: {},
 	lettersElsewhere: {},
 	lettersAbsent: [],
 	words: []
 }
 
-var leastDuplicatedLetters = null;
-var sortedDuplicatedLetters = [];
+leastDuplicatedLetters = null;
+sortedDuplicatedLetters = [];
 
 document.getElementsByClassName("App-container")[0].style.height = "87vh";
 
-if(debug) {
-	var alertBox = document.createElement("p");
+alertBox = null;
+
+if(debugMode) {
+	alertBox = document.createElement("p");
 	alertBox.innerHTML = "Script Activating...";
 	document.getElementById("root").appendChild(alertBox);
 };
@@ -48,7 +50,7 @@ document.getElementById("root").appendChild(wlfContainer);
 
 let outputBox = null;
 
-var response = null;
+response = null;
 
 (async function(){
 	wlfContainer.innerHTML = await (await fetch(`${mainURL}ui/ui.html`)).text();
@@ -71,7 +73,7 @@ var response = null;
 	allWords[8] = await response.toString().split("\n");
 })();
 
-var inputWord = null;
+inputWord = null;
 
 var wordlecupProcess = async function() {
 	if(!wordlecupActive) return;
@@ -97,7 +99,7 @@ var wordlecupProcess = async function() {
 				inputWord = await allWords[rowLength][Math.floor(Math.random() * allWords[rowLength].length)];
 				await wordlecupInputText(inputWord);
 			} else {
-				if(!auto && !debug) outputBox.innerHTML = "Generating Words...";
+				if(!autoMode && !debugMode) outputBox.innerHTML = "Generating Words...";
 				
 				if(Object.keys(gameData.lettersCorrect).length > 0) {
 					for(let letterPos in gameData.lettersCorrect) {
@@ -130,7 +132,7 @@ var wordlecupProcess = async function() {
 					}
 				}
 				
-				if(debug) {
+				if(debugMode) {
 					let alertBox7 = document.createElement("p");
 					alertBox7.innerHTML = `gameStatus 6: ${gameStatus}`;
 					document.getElementById("root").prepend(alertBox7);
@@ -266,7 +268,7 @@ var wordlecupProcess = async function() {
 				document.getElementById("root").prepend(leastDuplicatedLettersBox); */
 				
 				if(leastDuplicatedLetters.length > 0) {
-					if(auto) {
+					if(autoMode) {
 						inputWord = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
 						
 						outputBox.innerHTML = inputWord;
@@ -275,7 +277,7 @@ var wordlecupProcess = async function() {
 						
 						await wordlecupCheckStatus();
 					} else {
-						if(debug) {
+						if(debugMode) {
 							outputBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
 						} else {
 							let fewLeastDuplicatedLetters = await leastDuplicatedLetters.slice(0, 9);
@@ -300,7 +302,7 @@ var wordlecupProcess = async function() {
 		oldRow = currentRow
 		await wordlecupCheckStatus()
 	} else if(gameStatus == 2) {
-		if(debug) {
+		if(debugMode) {
 			let gameStatus2Box = document.createElement("p");
 			gameStatus2Box.innerHTML = "gameStatus 2: Running rn";
 			document.getElementById("root").prepend(gameStatus2Box);
@@ -350,7 +352,7 @@ var wordlecupProcess = async function() {
 			
 			if(Object.keys(letterElsewhere).length > 0) {
 				for(let letter in letterElsewhere) {
-					if(debug) {
+					if(debugMode) {
 						let alertBoxletter = document.createElement("p");
 						alertBoxletter.innerHTML = `currentRow 0: ${letter}`;
 						document.getElementById("root").prepend(alertBoxletter);
@@ -376,7 +378,7 @@ var wordlecupProcess = async function() {
 				gameData.lettersElsewhere = {}
 			}
 			
-			if(debug) {
+			if(debugMode) {
 				let alertBox2 = document.createElement("p");
 				alertBox2.innerHTML = `currentRow 1: ${currentRow}`;
 				document.getElementById("root").prepend(alertBox2);
@@ -388,14 +390,14 @@ var wordlecupProcess = async function() {
 			
 			await wordlecupCheckStatus()
 			
-			if(debug) {
+			if(debugMode) {
 				let alertBox4 = document.createElement("p");
 				alertBox4.innerHTML = `gameStatus 3: ${gameStatus}`;
 				document.getElementById("root").prepend(alertBox4);
 			}
 			
 			if(gameStatus == 2) {
-				if(debug) {
+				if(debugMode) {
 					let alertBox5 = document.createElement("p");
 					alertBox5.innerHTML = `4`;
 					document.getElementById("root").prepend(alertBox5);
@@ -403,7 +405,7 @@ var wordlecupProcess = async function() {
 			
 				bypassGameStatus = true
 				
-				if(debug) {
+				if(debugMode) {
 					let alertBox6 = document.createElement("p");
 					alertBox6.innerHTML = `gameStatus 5: ${gameStatus}`;
 					document.getElementById("root").prepend(alertBox6);
@@ -450,7 +452,7 @@ var wordlecupCheckStatus = async function() {
 	if(alertElement.textContent.includes("Make your first guess!")) {
 		gameStatus = 1;
 	} else if(alertElement.textContent.includes("Please wait for others to finish.") && gameStatus != 0) {
-		if(debug) {
+		if(debugMode) {
 			let alertBoxReset = document.createElement("p");
 			alertBoxReset.innerHTML = `resetting: ${gameStatus}`;
 			document.getElementById("root").prepend(alertBoxReset);
@@ -480,7 +482,7 @@ var wordlecupCheckStatus = async function() {
 		errorBox.innerHTML = "Critical Error: Invalid Word";
 		document.getElementById("root").prepend(errorBox);
 		
-		if(auto) {
+		if(autoMode) {
 			await notValidWord.push(inputWord);
 			
 			await sortedDuplicatedLetters.splice(sortedDuplicatedLetters.indexOf(inputWord), 1)
@@ -502,7 +504,7 @@ var wordlecupCheckStatus = async function() {
 			}
 			
 			if(leastDuplicatedLetters.length > 0) {
-				if(auto) {
+				if(autoMode) {
 					inputWord = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
 					
 					outputBox.innerHTML = inputWord;
@@ -511,7 +513,7 @@ var wordlecupCheckStatus = async function() {
 					
 					await wordlecupCheckStatus();
 				} else {
-					if(debug) {
+					if(debugMode) {
 						let leastDuplicatedLettersBox = document.createElement("p");
 						outputBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
 						document.getElementById("root").prepend(leastDuplicatedLettersBox);
@@ -535,7 +537,7 @@ var wordlecupCheckStatus = async function() {
 	} else {
 		gameStatus = 2;
 		
-		if(debug) {
+		if(debugMode) {
 			let alertBox6 = document.createElement("p");
 			alertBox6.innerHTML = `gameStatus changing: ${gameStatus}`;
 			document.getElementById("root").prepend(alertBox6);
