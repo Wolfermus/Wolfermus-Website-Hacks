@@ -581,12 +581,14 @@ var wordlecupSetupInteraction = async function() {
 	}
 }
 
-if(wordlecupActive) {
-	await sleep(250);
-	while(document.getElementsByClassName("wlf-Output").length <= 0) {
+(async function(){
+	if(wordlecupActive) {
 		await sleep(250);
+		while(document.getElementsByClassName("wlf-Output").length <= 0) {
+			await sleep(250);
+		}
+		wordlecupProcess();
+		
+		outputBox.innerHTML = "Script Activated";
 	}
-	wordlecupProcess();
-	
-	outputBox.innerHTML = "Script Activated";
-}
+})();
