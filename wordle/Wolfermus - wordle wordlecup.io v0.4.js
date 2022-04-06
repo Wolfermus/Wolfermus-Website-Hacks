@@ -8,32 +8,36 @@ function sleep(ms){
 }
 
 
-interact = {};
-allWords = {};
-notValidWord = [];
+var interact = {};
+var allWords = {};
+var notValidWord = [];
 
-debugMode = false;
-autoMode = false;
+var debugMode = false;
+var autoMode = false;
 
-wordlecupActive = true;
-gameStatus = 0;
-bypassGameStatus = false;
-currentRow = 0;
-oldRow = 0
-rowLength = null;
-gameData = {
+var wordlecupActive = true;
+var gameStatus = 0;
+var bypassGameStatus = false;
+var currentRow = 0;
+var oldRow = 0
+var rowLength = null;
+var gameData = {
 	lettersCorrect: {},
 	lettersElsewhere: {},
 	lettersAbsent: [],
 	words: []
 }
 
-leastDuplicatedLetters = null;
-sortedDuplicatedLetters = [];
+var alertBox = null;
 
-document.getElementsByClassName("App-container")[0].style.height = "87vh";
+var leastDuplicatedLetters = null;
+var sortedDuplicatedLetters = [];
 
-alertBox = null;
+var response = null;
+
+var inputWord = null;
+
+document.getElementsByClassName("App-container")[0].style.height = "86vh";
 
 if(debugMode) {
 	alertBox = document.createElement("p");
@@ -49,8 +53,6 @@ wlfContainer.classList.add("wlfContainer");
 document.getElementById("root").appendChild(wlfContainer);
 
 let outputBox = null;
-
-response = null;
 
 (async function(){
 	wlfContainer.innerHTML = await (await fetch(`${mainURL}ui/ui.html`)).text();
@@ -97,8 +99,6 @@ response = null;
 	response = await (await fetch(`${wordBankURL}allWords8Letters.txt`)).text();
 	allWords[8] = await response.toString().split("\n");
 })();
-
-inputWord = null;
 
 var wordlecupProcess = async function() {
 	if(!wordlecupActive) return;
