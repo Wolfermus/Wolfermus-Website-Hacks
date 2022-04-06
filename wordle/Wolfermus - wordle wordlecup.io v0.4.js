@@ -52,10 +52,37 @@ let outputBox = null;
 
 response = null;
 
+function autoModeToggle() {
+	if(autoMode == null) return;
+	if(autoMode) {
+		autoMode = false;
+		document.getElementById("autoOutput").innerHTML = "Auto Mode [Disabled]";
+	} else {
+		autoMode = true;
+		document.getElementById("autoOutput").innerHTML = "Auto Mode [Enabled]";
+	}
+}
+
+function debugModeToggle() {
+	if(debugMode == null) return;
+	if(debugMode) {
+		debugMode = false;
+		document.getElementById("debugOutput").innerHTML = "Debug Mode [Disabled]";
+	} else {
+		debugMode = true;
+		document.getElementById("debugOutput").innerHTML = "Debug Mode [Enabled]";
+	}
+}
+
 (async function(){
 	wlfContainer.innerHTML = await (await fetch(`${mainURL}ui/ui.html`)).text();
 	
 	outputBox = await document.getElementsByClassName("wlf-Output")[0];
+	
+	document.getElementById("autoOutput").innerHTML = "Auto Mode [Disabled]";
+	document.getElementById("debugOutput").innerHTML = "Debug Mode [Disabled]";
+	document.getElementById("autoOutput").addEventListener("click", autoModeToggle());
+	document.getElementById("debugOutput").addEventListener("click", debugModeToggle());
 	
 	response = await (await fetch(`${wordBankURL}allWords4Letters.txt`)).text();
 	allWords[4] = await response.toString().split("\n");

@@ -9,28 +9,8 @@
 
 		<nav class="wlfNav">
 			<ul class="wlfUl">
-				<li><a onclick="function autoModeToggle() {
-					if(autoMode != null) {
-						if(autoMode) {
-							autoMode = false;
-							document.getElementById("autoOutput").innerHTML = "Auto Mode [Disabled]";
-						} else {
-							autoMode = true;
-							document.getElementById("autoOutput").innerHTML = "Auto Mode [Enabled]";
-						}
-					}
-				}" id="autoOutput">Auto Mode [Disabled]</a></li>
-				<li><a onclick="function debugModeToggle() {
-					if(debugMode != null) {
-						if(debugMode) {
-							debugMode = false;
-							document.getElementById("debugOutput").innerHTML = "Debug Mode [Disabled]";
-						} else {
-							debugMode = true;
-							document.getElementById("debugOutput").innerHTML = "Debug Mode [Enabled]";
-						}
-					}
-				}" id="debugOutput">Debug Mode [Disabled]</a></li>
+				<li><a id="autoOutput">Auto Mode [Please Wait Loading...]</a></li>
+				<li><a id="debugOutput">Debug Mode [Please Wait Loading...]</a></li>
 				<li><a>[wip]</a></li>
 				<li><a>[wip]</a></li>
 			</ul>
