@@ -1,29 +1,4 @@
 <div class="wlfContainer">
-	<script>
-		function autoModeToggle() {
-			if(autoMode != null) {
-				if(autoMode) {
-					autoMode = false;
-					document.getElementById("autoOutput").innerHTML = "Auto Mode [Disabled]";
-				} else {
-					autoMode = true;
-					document.getElementById("autoOutput").innerHTML = "Auto Mode [Enabled]";
-				}
-			}
-		}
-		
-		function debugModeToggle() {
-			if(debugMode != null) {
-				if(debugMode) {
-					debugMode = false;
-					document.getElementById("debugOutput").innerHTML = "Debug Mode [Disabled]";
-				} else {
-					debugMode = true;
-					document.getElementById("debugOutput").innerHTML = "Debug Mode [Enabled]";
-				}
-			}
-		}
-	</script>
 	<div class="wlfWrapper">
 		<link rel="stylesheet" href="https://raw.githack.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/css/main.css">
 <!--		<link rel="stylesheet" href="../css/main.css">-->
@@ -34,8 +9,8 @@
 
 		<nav class="wlfNav">
 			<ul class="wlfUl">
-				<li><a onclick="autoModeToggle()" id="autoOutput">Auto Mode [Disabled]</a></li>
-				<li><a onclick="debugModeToggle()" id="debugOutput">Debug Mode [Disabled]</a></li>
+				<li><a onclick="console.log("Loading...")" id="autoOutput">Auto Mode [Disabled]</a></li>
+				<li><a onclick="console.log("Loading...")" id="debugOutput">Debug Mode [Disabled]</a></li>
 				<li><a>[wip]</a></li>
 				<li><a>[wip]</a></li>
 			</ul>
