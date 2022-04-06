@@ -37,7 +37,7 @@ if(debug) {
 	var alertBox = document.createElement("p");
 	alertBox.innerHTML = "Script Activating...";
 	document.getElementById("root").appendChild(alertBox);
-}
+};
 
 /* let inputBox = document.createElement("p");
 document.getElementById("root").appendChild(inputBox); */
@@ -579,7 +579,7 @@ var wordlecupSetupInteraction = async function() {
 	} else {
 		gameStatus = 0;
 	}
-}
+};
 
 (async function(){
 	if(wordlecupActive) {
