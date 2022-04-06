@@ -57,18 +57,18 @@ body {
 	position: relative;
 }
 
-.wlfNav a {
+.wlfNav ul li a {
 	color: #444;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 14px;
 }
 
-.wlfNav a:hover {
+.wlfNav ul li a:hover {
 	color: #000;
 }
 
-.wlfNav a::before {
+.wlfNav ul li a::before {
 	content: "";
 	display: block;
 	border-radius: 50%;
@@ -82,7 +82,7 @@ body {
 	transition: all ease-in-out 250ms;
 }
 
-.wlfNav a::after {
+.wlfNav ul li a::after {
 	content: "";
 	display: block;
 	border-radius: 50%;
@@ -96,10 +96,17 @@ body {
 	transition: all ease-in-out 250ms;
 }
 
-.wlfNav a:hover::before {
+.wlfNav ul li a:hover::before {
 	width: 100%;
 }
 
-.wlfNav a:hover::after {
+.wlfNav ul li a:hover::after {
 	width: 100%;
+}
+
+.wlf-Output {
+	margin-top: 20px;
+	display: block;
+	width: 100%;
+	text-align: center;
 }

@@ -1,4 +1,5 @@
-const mainURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/wordBank/"
+const mainURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/"
+const wordBankURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/wordBank/"
 
 function sleep(ms){
     return new Promise(resolve=>{
@@ -12,7 +13,7 @@ var allWords = {};
 var notValidWord = [];
 
 var debug = false;
-var auto = true;
+var auto = false;
 
 var wordlecupActive = true;
 var gameStatus = 0;
@@ -30,30 +31,43 @@ var gameData = {
 var leastDuplicatedLetters = null;
 var sortedDuplicatedLetters = [];
 
+document.getElementsByClassName("App-container")[0].style.height = "87vh";
 
-var alertBox = document.createElement("p");
-alertBox.innerHTML = "Script Activating...";
-document.getElementById("root").prepend(alertBox);
+if(debug) {
+	var alertBox = document.createElement("p");
+	alertBox.innerHTML = "Script Activating...";
+	document.getElementById("root").appendChild(alertBox);
+}
 
-let inputBox = document.createElement("p");
-document.getElementById("root").prepend(inputBox);
+/* let inputBox = document.createElement("p");
+document.getElementById("root").appendChild(inputBox); */
+
+let wlfContainer = document.createElement("div");
+wlfContainer.classList.add("wlfContainer");
+document.getElementById("root").appendChild(wlfContainer);
+
+let outputBox = null;
 
 var response = null;
 
 (async function(){
-	response = await (await fetch(`${mainURL}allWords4Letters.txt`)).text();
+	wlfContainer.innerHTML = await (await fetch(`${mainURL}ui/ui.html`)).text();
+	
+	outputBox = await document.getElementsByClassName("wlf-Output")[0];
+	
+	response = await (await fetch(`${wordBankURL}allWords4Letters.txt`)).text();
 	allWords[4] = await response.toString().split("\n");
 	
-	response = await (await fetch(`${mainURL}allWords5Letters.txt`)).text();
+	response = await (await fetch(`${wordBankURL}allWords5Letters.txt`)).text();
 	allWords[5] = await response.toString().split("\n");
 	
-	response = await (await fetch(`${mainURL}allWords6Letters.txt`)).text();
+	response = await (await fetch(`${wordBankURL}allWords6Letters.txt`)).text();
 	allWords[6] = await response.toString().split("\n");
 	
-	response = await (await fetch(`${mainURL}allWords7Letters.txt`)).text();
+	response = await (await fetch(`${wordBankURL}allWords7Letters.txt`)).text();
 	allWords[7] = await response.toString().split("\n");
 	
-	response = await (await fetch(`${mainURL}allWords8Letters.txt`)).text();
+	response = await (await fetch(`${wordBankURL}allWords8Letters.txt`)).text();
 	allWords[8] = await response.toString().split("\n");
 })();
 
@@ -72,8 +86,6 @@ var wordlecupProcess = async function() {
 		await wordlecupCheckRow()
 		await wordlecupCheckStatus()
 	}
-
-	alertBox.innerHTML = gameStatus.toString()
 	
 	if(gameStatus == 1 || bypassGameStatus) {
 		bypassGameStatus = false;
@@ -85,6 +97,8 @@ var wordlecupProcess = async function() {
 				inputWord = await allWords[rowLength][Math.floor(Math.random() * allWords[rowLength].length)];
 				await wordlecupInputText(inputWord);
 			} else {
+				if(!auto && !debug) outputBox.innerHTML = "Generating Words...";
+				
 				if(Object.keys(gameData.lettersCorrect).length > 0) {
 					for(let letterPos in gameData.lettersCorrect) {
 						letterPos = parseInt(letterPos);
@@ -255,21 +269,22 @@ var wordlecupProcess = async function() {
 					if(auto) {
 						inputWord = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
 						
-						inputBox.innerHTML = inputWord;
+						outputBox.innerHTML = inputWord;
 							
 						await wordlecupInputText(inputWord);
 						
 						await wordlecupCheckStatus();
 					} else {
 						if(debug) {
-							inputBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
+							outputBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
 						} else {
 							let fewLeastDuplicatedLetters = await leastDuplicatedLetters.slice(0, 9);
 							
 							/* for(let wordObject in fewLeastDuplicatedLetters) {
-								inputBox.innerHTML += `${fewLeastDuplicatedLetters[wordObject].word}, `;
+								outputBox.innerHTML += `${fewLeastDuplicatedLetters[wordObject].word}, `;
 							} */
-							await fewLeastDuplicatedLetters.forEach(wordObject => inputBox.innerHTML += `${wordObject.word}, `);
+							outputBox.innerHTML = "";
+							await fewLeastDuplicatedLetters.forEach(wordObject => outputBox.innerHTML += `${wordObject.word}, `);
 							
 							await wordlecupCheckStatus();
 						}
@@ -290,107 +305,109 @@ var wordlecupProcess = async function() {
 			gameStatus2Box.innerHTML = "gameStatus 2: Running rn";
 			document.getElementById("root").prepend(gameStatus2Box);
 		}
-				
-		let row = await document.getElementsByClassName("Row")[oldRow].children;
-		let letterElsewhere = {}
 		
-		for (let i = 0; i < row.length; i++) {
-			let rowLetter = row[i]
-            let rowClassList = rowLetter.classList;
+		if(document.getElementsByClassName("Row").length > 0) {
+			let row = await document.getElementsByClassName("Row")[oldRow].children;
+			let letterElsewhere = {}
 			
-			if(rowClassList.contains("letter-correct")) {
-				gameData.lettersCorrect[i] = rowLetter.textContent;
-				if(gameData.lettersElsewhere[rowLetter.textContent]) {
-					if(gameData.lettersElsewhere[rowLetter.textContent].num > 1) {
-						gameData.lettersElsewhere[rowLetter.textContent].num--
-						await gameData.lettersElsewhere[rowLetter.textContent].pos.splice(gameData.lettersElsewhere[rowLetter.textContent].pos.indexOf(i), 1);
-					} else {
-						delete gameData.lettersElsewhere[rowLetter.textContent]
+			for (let i = 0; i < row.length; i++) {
+				let rowLetter = row[i]
+				let rowClassList = rowLetter.classList;
+				
+				if(rowClassList.contains("letter-correct")) {
+					gameData.lettersCorrect[i] = rowLetter.textContent;
+					if(gameData.lettersElsewhere[rowLetter.textContent]) {
+						if(gameData.lettersElsewhere[rowLetter.textContent].num > 1) {
+							gameData.lettersElsewhere[rowLetter.textContent].num--
+							await gameData.lettersElsewhere[rowLetter.textContent].pos.splice(gameData.lettersElsewhere[rowLetter.textContent].pos.indexOf(i), 1);
+						} else {
+							delete gameData.lettersElsewhere[rowLetter.textContent]
+						}
 					}
-				}
-			} else if(rowClassList.contains("letter-elsewhere")) {
-				if(!letterElsewhere[rowLetter.textContent]) letterElsewhere[rowLetter.textContent] = {
-					"pos": [],
-					"max": false
-				}
-				if(gameData.lettersAbsent.includes(rowLetter.textContent)) {
-					await gameData.lettersAbsent.splice(gameData.lettersAbsent.indexOf(rowLetter.textContent), 1);
-					
-					letterElsewhere[rowLetter.textContent].max = true;
-				}
-					
-				await letterElsewhere[rowLetter.textContent].pos.push(i);
-					
-			} else if(rowClassList.contains("letter-absent")) {
-				if(!gameData.lettersAbsent.includes(rowLetter.textContent)) {
-					if(!letterElsewhere[rowLetter.textContent]) {
-						gameData.lettersAbsent.push(rowLetter.textContent);
-					} else {
+				} else if(rowClassList.contains("letter-elsewhere")) {
+					if(!letterElsewhere[rowLetter.textContent]) letterElsewhere[rowLetter.textContent] = {
+						"pos": [],
+						"max": false
+					}
+					if(gameData.lettersAbsent.includes(rowLetter.textContent)) {
+						await gameData.lettersAbsent.splice(gameData.lettersAbsent.indexOf(rowLetter.textContent), 1);
+						
 						letterElsewhere[rowLetter.textContent].max = true;
 					}
+						
+					await letterElsewhere[rowLetter.textContent].pos.push(i);
+						
+				} else if(rowClassList.contains("letter-absent")) {
+					if(!gameData.lettersAbsent.includes(rowLetter.textContent)) {
+						if(!letterElsewhere[rowLetter.textContent]) {
+							gameData.lettersAbsent.push(rowLetter.textContent);
+						} else {
+							letterElsewhere[rowLetter.textContent].max = true;
+						}
+					}
 				}
 			}
-        }
-		
-		if(Object.keys(letterElsewhere).length > 0) {
-			for(let letter in letterElsewhere) {
+			
+			if(Object.keys(letterElsewhere).length > 0) {
+				for(let letter in letterElsewhere) {
+					if(debug) {
+						let alertBoxletter = document.createElement("p");
+						alertBoxletter.innerHTML = `currentRow 0: ${letter}`;
+						document.getElementById("root").prepend(alertBoxletter);
+					}
+			
+					if(gameData.lettersElsewhere[letter]) {
+						if(letterElsewhere[letter].pos.length != gameData.lettersElsewhere[letter].num) {
+							gameData.lettersElsewhere[letter].num = letterElsewhere[letter].pos.length;
+						}
+						if(letterElsewhere[letter].max) {
+							gameData.lettersElsewhere[letter].max = true;
+						}
+						gameData.lettersElsewhere[letter].pos.push(...letterElsewhere[letter].pos);
+					} else {
+						gameData.lettersElsewhere[letter] = {
+							num: letterElsewhere[letter].pos.length,
+							pos: letterElsewhere[letter].pos,
+							max: letterElsewhere[letter].max
+						}
+					}
+				}
+			} else {
+				gameData.lettersElsewhere = {}
+			}
+			
+			if(debug) {
+				let alertBox2 = document.createElement("p");
+				alertBox2.innerHTML = `currentRow 1: ${currentRow}`;
+				document.getElementById("root").prepend(alertBox2);
+				
+				let alertBox3 = document.createElement("p");
+				alertBox3.innerHTML = `gameStatus 2: ${gameStatus}`;
+				document.getElementById("root").prepend(alertBox3);
+			}
+			
+			await wordlecupCheckStatus()
+			
+			if(debug) {
+				let alertBox4 = document.createElement("p");
+				alertBox4.innerHTML = `gameStatus 3: ${gameStatus}`;
+				document.getElementById("root").prepend(alertBox4);
+			}
+			
+			if(gameStatus == 2) {
 				if(debug) {
-					let alertBoxletter = document.createElement("p");
-					alertBoxletter.innerHTML = `currentRow 0: ${letter}`;
-					document.getElementById("root").prepend(alertBoxletter);
+					let alertBox5 = document.createElement("p");
+					alertBox5.innerHTML = `4`;
+					document.getElementById("root").prepend(alertBox5);
 				}
-		
-				if(gameData.lettersElsewhere[letter]) {
-					if(letterElsewhere[letter].pos.length != gameData.lettersElsewhere[letter].num) {
-						gameData.lettersElsewhere[letter].num = letterElsewhere[letter].pos.length;
-					}
-					if(letterElsewhere[letter].max) {
-						gameData.lettersElsewhere[letter].max = true;
-					}
-					gameData.lettersElsewhere[letter].pos.push(...letterElsewhere[letter].pos);
-				} else {
-					gameData.lettersElsewhere[letter] = {
-						num: letterElsewhere[letter].pos.length,
-						pos: letterElsewhere[letter].pos,
-						max: letterElsewhere[letter].max
-					}
+			
+				bypassGameStatus = true
+				
+				if(debug) {
+					let alertBox6 = document.createElement("p");
+					alertBox6.innerHTML = `gameStatus 5: ${gameStatus}`;
+					document.getElementById("root").prepend(alertBox6);
 				}
-			}
-		} else {
-			gameData.lettersElsewhere = {}
-		}
-		
-		if(debug) {
-			let alertBox2 = document.createElement("p");
-			alertBox2.innerHTML = `currentRow 1: ${currentRow}`;
-			document.getElementById("root").prepend(alertBox2);
-			
-			let alertBox3 = document.createElement("p");
-			alertBox3.innerHTML = `gameStatus 2: ${gameStatus}`;
-			document.getElementById("root").prepend(alertBox3);
-		}
-		
-		await wordlecupCheckStatus()
-		
-		if(debug) {
-			let alertBox4 = document.createElement("p");
-			alertBox4.innerHTML = `gameStatus 3: ${gameStatus}`;
-			document.getElementById("root").prepend(alertBox4);
-		}
-		
-		if(gameStatus == 2) {
-			if(debug) {
-				let alertBox5 = document.createElement("p");
-				alertBox5.innerHTML = `4`;
-				document.getElementById("root").prepend(alertBox5);
-			}
-		
-			bypassGameStatus = true
-			
-			if(debug) {
-				let alertBox6 = document.createElement("p");
-				alertBox6.innerHTML = `gameStatus 5: ${gameStatus}`;
-				document.getElementById("root").prepend(alertBox6);
 			}
 		}
 	}
@@ -488,7 +505,7 @@ var wordlecupCheckStatus = async function() {
 				if(auto) {
 					inputWord = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
 					
-					inputBox.innerHTML = inputWord;
+					outputBox.innerHTML = inputWord;
 						
 					await wordlecupInputText(inputWord);
 					
@@ -496,15 +513,15 @@ var wordlecupCheckStatus = async function() {
 				} else {
 					if(debug) {
 						let leastDuplicatedLettersBox = document.createElement("p");
-						inputBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
+						outputBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
 						document.getElementById("root").prepend(leastDuplicatedLettersBox);
 					} else {
 						let fewLeastDuplicatedLetters = await leastDuplicatedLetters.slice(0, 9);
 						
 						/* for(let wordObject in fewLeastDuplicatedLetters) {
-							inputBox.innerHTML += `${fewLeastDuplicatedLetters[wordObject].word}, `;
+							outputBox.innerHTML += `${fewLeastDuplicatedLetters[wordObject].word}, `;
 						} */
-						await fewLeastDuplicatedLetters.forEach(wordObject => inputBox.innerHTML += `${wordObject.word}, `);
+						await fewLeastDuplicatedLetters.forEach(wordObject => outputBox.innerHTML += `${wordObject.word}, `);
 						
 						await wordlecupCheckStatus();
 					}
@@ -566,6 +583,10 @@ var wordlecupSetupInteraction = async function() {
 
 if(wordlecupActive) {
 	await sleep(250);
+	while(document.getElementsByClassName("wlf-Output").length <= 0) {
+		await sleep(250);
+	}
 	wordlecupProcess();
-	alertBox.innerHTML = "Script Activated";
+	
+	outputBox.innerHTML = "Script Activated";
 }
