@@ -35,6 +35,7 @@ var leastDuplicatedLetters = null;
 var sortedDuplicatedLetters = [];
 
 var response = null;
+let responseArray = null;
 
 var inputWord = null;
 
@@ -86,7 +87,7 @@ let outputBox = null;
 	});
 	
 	response = await (await fetch(`${wordBankURL}wordleWordleCupAllWords.txt`)).text();
-	let responseArray = await response.toString().split("\n");
+	responseArray = await response.toString().split("\n");
 	allWords[4] = await responseArray.filter(word => word.length = 4);
 	allWords[5] = await responseArray.filter(word => word.length = 5);
 	allWords[6] = await responseArray.filter(word => word.length = 6);
@@ -94,7 +95,7 @@ let outputBox = null;
 	allWords[8] = await responseArray.filter(word => word.length = 8);
 	
 	response = await (await fetch(`${wordBankURL}wordleWordleCupCommonWords.txt`)).text();
-	let responseArray = await response.toString().split("\n");
+	responseArray = await response.toString().split("\n");
 	commonWords[4] = await responseArray.filter(word => word.length = 4);
 	commonWords[5] = await responseArray.filter(word => word.length = 5);
 	commonWords[6] = await responseArray.filter(word => word.length = 6);
