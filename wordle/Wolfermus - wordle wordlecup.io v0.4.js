@@ -10,7 +10,8 @@ function sleep(ms){
 
 var interact = {};
 var allWords = {};
-var notValidWord = [];
+var commonWords = {};
+var inValidWords = [];
 
 var debugMode = false;
 var autoMode = false;
@@ -84,20 +85,21 @@ let outputBox = null;
 		}
 	});
 	
-	response = await (await fetch(`${wordBankURL}allWords4Letters.txt`)).text();
-	allWords[4] = await response.toString().split("\n");
+	response = await (await fetch(`${wordBankURL}wordleWordleCupAllWords.txt`)).text();
+	let responseArray = await response.toString().split("\n");
+	allWords[4] = await responseArray.filter(word => word.length = 4);
+	allWords[5] = await responseArray.filter(word => word.length = 5);
+	allWords[6] = await responseArray.filter(word => word.length = 6);
+	allWords[7] = await responseArray.filter(word => word.length = 7);
+	allWords[8] = await responseArray.filter(word => word.length = 8);
 	
-	response = await (await fetch(`${wordBankURL}allWords5Letters.txt`)).text();
-	allWords[5] = await response.toString().split("\n");
-	
-	response = await (await fetch(`${wordBankURL}allWords6Letters.txt`)).text();
-	allWords[6] = await response.toString().split("\n");
-	
-	response = await (await fetch(`${wordBankURL}allWords7Letters.txt`)).text();
-	allWords[7] = await response.toString().split("\n");
-	
-	response = await (await fetch(`${wordBankURL}allWords8Letters.txt`)).text();
-	allWords[8] = await response.toString().split("\n");
+	response = await (await fetch(`${wordBankURL}wordleWordleCupCommonWords.txt`)).text();
+	let responseArray = await response.toString().split("\n");
+	commonWords[4] = await responseArray.filter(word => word.length = 4);
+	commonWords[5] = await responseArray.filter(word => word.length = 5);
+	commonWords[6] = await responseArray.filter(word => word.length = 6);
+	commonWords[7] = await responseArray.filter(word => word.length = 7);
+	commonWords[8] = await responseArray.filter(word => word.length = 8);
 })();
 
 var wordlecupProcess = async function() {
@@ -507,9 +509,9 @@ var wordlecupCheckStatus = async function() {
 		errorBox.innerHTML = "Critical Error: Invalid Word";
 		document.getElementById("root").prepend(errorBox);
 		
+		await inValidWords.push(inputWord);
+		
 		if(autoMode) {
-			await notValidWord.push(inputWord);
-			
 			await sortedDuplicatedLetters.splice(sortedDuplicatedLetters.indexOf(inputWord), 1)
 			await allWords[rowLength].splice(allWords[rowLength].indexOf(inputWord), 1)
 			
