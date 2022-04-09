@@ -1,2 +1,3 @@
 Add to show most common words aswell.
 With automode pick most common words first with least duplicates then show least duplicates.
+Remove invalid words automatically from github
