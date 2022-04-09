@@ -35,7 +35,7 @@ var leastDuplicatedLetters = null;
 var sortedDuplicatedLetters = [];
 
 var response = null;
-let responseArray = null;
+var responseArray = null;
 
 var inputWord = null;
 
