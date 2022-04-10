@@ -1,0 +1,12 @@
+<----|To-Do|---->
+
+
+
+<----|Working On|---->
+UI is popped up to very front and its own dev and dosent require any other elements so its compatable on every website.
+
+
+
+<----|Done|---->
+[Done] Auto detect website to choose hack.
+[Done] User select "main, testing, dev" branch to load.
