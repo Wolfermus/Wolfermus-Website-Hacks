@@ -11,8 +11,9 @@ This Repo contains website hacks that i have created and wanted to share
 
 Copy and paste:
 ```
+let branch = "main";
 (async function(){
-	let autoUpdate = await (await fetch(`https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/dev/menu/Wolfermus%20-%20main%20menu%20autoupdate.js`)).text();
+	let autoUpdate = await (await fetch(`https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/${branch}/menu/Wolfermus%20-%20main%20menu%20autoupdate.js`)).text();
 	await eval(autoUpdate);
 })();
 ```
