@@ -1,13 +1,15 @@
-const mainURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/"
+const mainMenuURL = "https://github.com/Wolfermus/Wolfermus-Website-Hacks/blob/main/menu/"
 
 let mainWlfContainer = document.createElement("div");
 mainWlfContainer.classList.add("main-wlf-container");
 document.appendChild(mainWlfContainer);
 
+let mainWlfAutoDetectBox = null;
+
 (async function(){
-	wlfContainer.innerHTML = await (await fetch(`${mainWordleURL}ui/ui.html`)).text();
+	mainWlfContainer.innerHTML = await (await fetch(`${mainMenuURL}ui/ui.html`)).text();
 	
-	outputBox = await document.getElementsByClassName("wlf-Output")[0];
+	mainWlfAutoDetectBox = await document.getElementById("main-wlf-autodetect");
 	
 	
 })();
