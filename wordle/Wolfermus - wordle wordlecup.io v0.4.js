@@ -88,19 +88,19 @@ let outputBox = null;
 	
 	response = await (await fetch(`${wordBankURL}wordleWordleCupAllWords.txt`)).text();
 	responseArray = await response.toString().split("\n");
-	allWords[4] = await responseArray.filter(word => word.length = 4);
-	allWords[5] = await responseArray.filter(word => word.length = 5);
-	allWords[6] = await responseArray.filter(word => word.length = 6);
-	allWords[7] = await responseArray.filter(word => word.length = 7);
-	allWords[8] = await responseArray.filter(word => word.length = 8);
+	allWords[4] = await responseArray.filter(word => word.length == 4);
+	allWords[5] = await responseArray.filter(word => word.length == 5);
+	allWords[6] = await responseArray.filter(word => word.length == 6);
+	allWords[7] = await responseArray.filter(word => word.length == 7);
+	allWords[8] = await responseArray.filter(word => word.length == 8);
 	
 	response = await (await fetch(`${wordBankURL}wordleWordleCupCommonWords.txt`)).text();
 	responseArray = await response.toString().split("\n");
-	commonWords[4] = await responseArray.filter(word => word.length = 4);
-	commonWords[5] = await responseArray.filter(word => word.length = 5);
-	commonWords[6] = await responseArray.filter(word => word.length = 6);
-	commonWords[7] = await responseArray.filter(word => word.length = 7);
-	commonWords[8] = await responseArray.filter(word => word.length = 8);
+	commonWords[4] = await responseArray.filter(word => word.length == 4);
+	commonWords[5] = await responseArray.filter(word => word.length == 5);
+	commonWords[6] = await responseArray.filter(word => word.length == 6);
+	commonWords[7] = await responseArray.filter(word => word.length == 7);
+	commonWords[8] = await responseArray.filter(word => word.length == 8);
 })();
 
 var wordlecupProcess = async function() {
@@ -458,12 +458,16 @@ var wordlecupInputText = async function(inputWord) {
 }
 
 var wordlecupCheckRow = async function() {
-	for(let i = 0; i < document.getElementsByClassName("Row").length; i++) {
-		let row = document.getElementsByClassName("Row")[i];
-		
-		if(!row.classList.contains("Row-locked-in")) {
-			currentRow = i;
-			break;
+	if(!wordlecupActive) return;
+	
+	if(document.querySelectorAll('[role="alert"]')[0]) {
+		for(let i = 0; i < document.getElementsByClassName("Row").length; i++) {
+			let row = document.getElementsByClassName("Row")[i];
+			
+			if(!row.classList.contains("Row-locked-in")) {
+				currentRow = i;
+				break;
+			}
 		}
 	}
 }
@@ -524,7 +528,7 @@ var wordlecupCheckStatus = async function() {
 			if(leastDuplicatedLetters.length <= 0) {
 				leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 1);
 				if(leastDuplicatedLetters.length <= 0) {
-					leastDuplicatedLetters = sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 2);
+					leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 2);
 					if(leastDuplicatedLetters.length <= 0) {
 						leastDuplicatedLetters = [sortedDuplicatedLetters[0]];
 					}
@@ -533,6 +537,10 @@ var wordlecupCheckStatus = async function() {
 			
 			if(leastDuplicatedLetters.length > 0) {
 				if(autoMode) {
+					let leastDuplicatedLettersBox = document.createElement("p");
+					leastDuplicatedLettersBox.innerHTML = JSON.stringify(sortedDuplicatedLetters);
+					document.getElementById("root").prepend(leastDuplicatedLettersBox);
+					
 					inputWord = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
 					
 					outputBox.innerHTML = inputWord;
@@ -543,7 +551,7 @@ var wordlecupCheckStatus = async function() {
 				} else {
 					if(debugMode) {
 						let leastDuplicatedLettersBox = document.createElement("p");
-						outputBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
+						leastDuplicatedLettersBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
 						document.getElementById("root").prepend(leastDuplicatedLettersBox);
 					} else {
 						let fewLeastDuplicatedLetters = await leastDuplicatedLetters.slice(0, 9);
