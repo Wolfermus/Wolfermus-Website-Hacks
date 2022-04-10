@@ -8,41 +8,47 @@ function sleep(ms){
 }
 
 
-var interact = {};
-var allWords = {};
-var commonWords = {};
-var inValidWords = [];
+try {
+	var interact = {};
+	var allWords = {};
+	var commonWords = {};
+	var inValidWords = [];
 
-var debugMode = false;
-var autoMode = false;
+	var debugMode = false;
+	var autoMode = false;
 
-var wordlecupActive = true;
-var gameStatus = 0;
-var bypassGameStatus = false;
-var currentRow = 0;
-var oldRow = 0
-var rowLength = null;
-var gameData = {
-	lettersCorrect: {},
-	lettersElsewhere: {},
-	lettersAbsent: [],
-	words: []
+	var wordlecupActive = true;
+	var gameStatus = 0;
+	var bypassGameStatus = false;
+	var currentRow = 0;
+	var oldRow = 0
+	var rowLength = null;
+	var gameData = {
+		lettersCorrect: {},
+		lettersElsewhere: {},
+		lettersAbsent: [],
+		words: []
+	}
+
+	var alertBox = null;
+
+	var sortedDuplicatedLetters = [];
+	var commonSortedDuplicatedLetters = [];
+	var commonLeastDuplicatedLetters = null;
+	var leastDuplicatedLetters = null;
+	var combinedLeastDuplicatedLetters = null;
+
+	var response = null;
+	var responseArray = null;
+
+	var inputWord = null;
+	var outputBox = null;
+} catch(e) {
+	console.log(e);
 }
 
-var alertBox = null;
-
-var sortedDuplicatedLetters = [];
-var commonSortedDuplicatedLetters = [];
-var commonLeastDuplicatedLetters = null;
-var leastDuplicatedLetters = null;
-var combinedLeastDuplicatedLetters = null;
-
-var response = null;
-var responseArray = null;
-
-var inputWord = null;
-
 // document.getElementsByClassName("App-container")[0].style.height = "86vh";
+document.getElementsByClassName("App-container")[0].style.backgroundImage = "url(https://i.imgur.com/9Q9u9Qc.png)";
 
 if(debugMode) {
 	alertBox = document.createElement("p");
@@ -56,8 +62,6 @@ document.getElementById("root").appendChild(inputBox); */
 let wlfContainer = document.createElement("div");
 wlfContainer.classList.add("wlfContainer");
 document.getElementById("root").appendChild(wlfContainer);
-
-let outputBox = null;
 
 (async function(){
 	wlfContainer.innerHTML = await (await fetch(`${mainWordleURL}ui/ui.html`)).text();
@@ -695,7 +699,7 @@ var wordlecupSetupInteraction = async function() {
 (async function(){
 	if(wordlecupActive) {
 		await sleep(250);
-		while(document.getElementsByClassName("wlf-Output").length <= 0) {
+		while(outputBox == null) {
 			await sleep(250);
 		}
 		wordlecupProcess();
