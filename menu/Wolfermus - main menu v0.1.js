@@ -46,6 +46,7 @@ document.body.appendChild(mainWlfContainer);
 	testingBranchBox = await document.getElementById("testing-branch");
 	devBranchBox = await document.getElementById("dev-branch");
 	
+	
 	await mainWlfCloseBox.addEventListener("click", function() {
 		mainWlfActive = false;
 		mainWlfContainer.remove();

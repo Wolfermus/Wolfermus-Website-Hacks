@@ -92,6 +92,7 @@ let outputBox = null;
 		}
 	});
 	
+	
 	response = await (await fetch(`${mainWordleWordBankURL}wordleWordleCupAllWords.txt`)).text();
 	responseArray = await response.toString().split("\n");
 	allWords[4] = await responseArray.filter(word => word.length == 4);
