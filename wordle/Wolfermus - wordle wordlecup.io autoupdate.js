@@ -1,5 +1,5 @@
-const mainURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/"
-const wordBankURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/wordBank/"
+const mainWordleURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/"
+const mainWordleWordBankURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/wordBank/"
 
 function sleep(ms){
     return new Promise(resolve=>{
@@ -60,7 +60,7 @@ document.getElementById("root").appendChild(wlfContainer);
 let outputBox = null;
 
 (async function(){
-	wlfContainer.innerHTML = await (await fetch(`${mainURL}ui/ui.html`)).text();
+	wlfContainer.innerHTML = await (await fetch(`${mainWordleURL}ui/ui.html`)).text();
 	
 	outputBox = await document.getElementsByClassName("wlf-Output")[0];
 	
@@ -89,7 +89,7 @@ let outputBox = null;
 		}
 	});
 	
-	response = await (await fetch(`${wordBankURL}wordleWordleCupAllWords.txt`)).text();
+	response = await (await fetch(`${mainWordleWordBankURL}wordleWordleCupAllWords.txt`)).text();
 	responseArray = await response.toString().split("\n");
 	allWords[4] = await responseArray.filter(word => word.length == 4);
 	allWords[5] = await responseArray.filter(word => word.length == 5);
@@ -97,7 +97,7 @@ let outputBox = null;
 	allWords[7] = await responseArray.filter(word => word.length == 7);
 	allWords[8] = await responseArray.filter(word => word.length == 8);
 	
-	response = await (await fetch(`${wordBankURL}wordleWordleCupCommonWords.txt`)).text();
+	response = await (await fetch(`${mainWordleWordBankURL}wordleWordleCupCommonWords.txt`)).text();
 	responseArray = await response.toString().split("\n");
 	commonWords[4] = await responseArray.filter(word => word.length == 4);
 	commonWords[5] = await responseArray.filter(word => word.length == 5);
