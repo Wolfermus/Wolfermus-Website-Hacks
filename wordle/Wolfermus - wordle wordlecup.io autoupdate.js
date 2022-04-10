@@ -695,7 +695,7 @@ var wordlecupSetupInteraction = async function() {
 (async function(){
 	if(wordlecupActive) {
 		await sleep(250);
-		while(document.getElementsByClassName("wlf-Output").length <= 0) {
+		while(outputBox == null) {
 			await sleep(250);
 		}
 		wordlecupProcess();
