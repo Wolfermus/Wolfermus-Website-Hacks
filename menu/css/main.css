@@ -40,9 +40,10 @@
 .wlf-logo {
 	width: 120px;
 	height: 120px;
+	display: inline-block;
 }
 
-.main-wlf-close {
+#main-wlf-close {
 	position: absolute;
 	top: 20px;
 	right: 36px;
