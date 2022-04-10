@@ -1,22 +1,24 @@
-<div class="wlfContainer">
-	<div class="wlfWrapper">
-		<link rel="stylesheet" href="https://rawcdn.githack.com/Wolfermus/Wolfermus-Website-Hacks/39836e90a11e9cb7e02adbbac90d274ec832ab94/wordle/css/main.css">
-<!--		<link rel="stylesheet" href="https://raw.githack.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/css/main.css">-->
-<!--		<link rel="stylesheet" href="../css/main.css">-->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Work+Sans:400" rel="stylesheet">
+<div class="wlfWrapper">
+<!--	<link rel="stylesheet" href="../css/main.css">-->
+	<style id="wordle-wlf-style"></style>
+	<script>
+		(async function(){
+			let wordleWlfStyleBox = await document.getElementById("wordle-wlf-style");
+			wordleWlfStyleBox.innerHTML = await (await fetch(`https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/css/main.css`)).text();
+		})();
+	</script>
+	
 
-		<img src="https://i.imgur.com/ZJwDGOz.png" alt="logo" class="wlfLogo">
+	<img src="https://i.imgur.com/ZJwDGOz.png" alt="logo" class="wlfLogo">
 
-		<nav class="wlfNav">
-			<ul class="wlfUl">
-				<li><a id="autoOutput">Auto Mode [Please Wait Loading...]</a></li>
-				<li><a id="debugOutput">Debug Mode [Please Wait Loading...]</a></li>
-				<li><a>[wip]</a></li>
-				<li><a>[wip]</a></li>
-			</ul>
-			<a class="wlf-Output">Loading Script...</a>
-		</nav>
-	</div>
+	<nav class="wlfNav">
+		<ul class="wlfUl">
+			<li><a id="autoOutput">Auto Mode [Please Wait Loading...]</a></li>
+			<li><a id="debugOutput">Debug Mode [Please Wait Loading...]</a></li>
+			<li><a>[wip]</a></li>
+			<li><a>[wip]</a></li>
+		</ul>
+		<a class="wlf-Output">Loading Script...</a>
+	</nav>
 </div>
 

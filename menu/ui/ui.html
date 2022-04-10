@@ -1,12 +1,13 @@
 <div class="main-wlf-wrapper">
 <!--	<link rel="stylesheet" href="../css/main.css">-->
-	<style id="wlf-style"></style>
+	<style id="main-wlf-style"></style>
 	<script>
 		(async function(){
-			let wlfStyleBox = await document.getElementById("wlf-style");
-			wlfStyleBox.innerHTML = await (await fetch(`https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/css/main.css`)).text();
+			let mainWlfStyleBox = await document.getElementById("main-wlf-style");
+			mainWlfStyleBox.innerHTML = await (await fetch(`https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/css/main.css`)).text();
 		})();
 	</script>
+	
 	
 	<div class="main-wlf-bg-modal">
 		<div class="main-wlf-modal-content">
