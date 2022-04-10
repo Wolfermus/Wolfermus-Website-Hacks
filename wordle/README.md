@@ -31,10 +31,10 @@ var currentRow = 0;
 var oldRow = 0
 var rowLength = null;
 var gameData = {
-	lettersCorrect: {},
-	lettersElsewhere: {},
-	lettersAbsent: [],
-	words: []
+    lettersCorrect: {},
+    lettersElsewhere: {},
+    lettersAbsent: [],
+    words: []
 }
 
 var alertBox = null;
@@ -51,11 +51,11 @@ var responseArray = null;
 var inputWord = null;
 var outputBox = null;
 
-
 let branch = "dev";
-(async function(){
+(async function(interact, allWords, commonWords, inValidWords, debugMode, autoMode, wordlecupActive, gameStatus, bypassGameStatus, currentRow, oldRow, rowLength, gameData, alertBox, sortedDuplicatedLetters, commonSortedDuplicatedLetters, commonLeastDuplicatedLetters, leastDuplicatedLetters, combinedLeastDuplicatedLetters, response, responseArray, inputWord, outputBox){
+    
 	let autoUpdate = await (await fetch(`https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/${branch}/wordle/Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js`)).text();
 	await eval(autoUpdate);
-})();
+})(interact, allWords, commonWords, inValidWords, debugMode, autoMode, wordlecupActive, gameStatus, bypassGameStatus, currentRow, oldRow, rowLength, gameData, alertBox, sortedDuplicatedLetters, commonSortedDuplicatedLetters, commonLeastDuplicatedLetters, leastDuplicatedLetters, combinedLeastDuplicatedLetters, response, responseArray, inputWord, outputBox);
 ```
 Into your browser console by pressing `CTRL+SHIFT+J`
