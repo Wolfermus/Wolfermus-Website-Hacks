@@ -31,8 +31,11 @@ var gameData = {
 
 var alertBox = null;
 
-var leastDuplicatedLetters = null;
 var sortedDuplicatedLetters = [];
+var commonSortedDuplicatedLetters = [];
+var commonLeastDuplicatedLetters = null;
+var leastDuplicatedLetters = null;
+var combinedLeastDuplicatedLetters = null;
 
 var response = null;
 var responseArray = null;
@@ -225,6 +228,7 @@ var wordlecupProcess = async function() {
 				}
 				
 				sortedDuplicatedLetters = [];
+				commonSortedDuplicatedLetters = [];
 				
 				for(let wordPos in gameData.words) {
 					wordPos = parseInt(wordPos);
@@ -263,21 +267,52 @@ var wordlecupProcess = async function() {
 						word,
 						numDuplicatedLetters
 					});
+					
+					if(commonWords[rowLength].includes(word)) {
+						await commonSortedDuplicatedLetters.push({
+							word,
+							numDuplicatedLetters
+						});
+					}
 				}
 				
 				await sortedDuplicatedLetters.sort(function (a, b) {
 					return a.numDuplicatedLetters - b.numDuplicatedLetters;
 				});
 				
-				leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 0);
-				if(leastDuplicatedLetters.length <= 0) {
-					leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 1);
+				await commonSortedDuplicatedLetters.sort(function (a, b) {
+					return a.numDuplicatedLetters - b.numDuplicatedLetters;
+				});
+				
+				
+				if(sortedDuplicatedLetters.length > 0) {
+					leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 0);
 					if(leastDuplicatedLetters.length <= 0) {
-						leastDuplicatedLetters = sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 2);
+						leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 1);
 						if(leastDuplicatedLetters.length <= 0) {
-							leastDuplicatedLetters = [sortedDuplicatedLetters[0]];
+							leastDuplicatedLetters = sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 2);
+							if(leastDuplicatedLetters.length <= 0) {
+								leastDuplicatedLetters = [sortedDuplicatedLetters[0]];
+							}
 						}
 					}
+				} else {
+					leastDuplicatedLetters = [];
+				}
+				
+				if(commonSortedDuplicatedLetters.length > 0) {
+					commonLeastDuplicatedLetters = await commonSortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 0);
+					if(commonLeastDuplicatedLetters.length <= 0) {
+						commonLeastDuplicatedLetters = await commonSortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 1);
+						if(commonLeastDuplicatedLetters.length <= 0) {
+							commonLeastDuplicatedLetters = commonSortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 2);
+							if(commonLeastDuplicatedLetters.length <= 0) {
+								commonLeastDuplicatedLetters = [commonSortedDuplicatedLetters[0]];
+							}
+						}
+					}
+				} else {
+					commonLeastDuplicatedLetters = [];
 				}
 				
  				// let string = "";
@@ -294,21 +329,41 @@ var wordlecupProcess = async function() {
 				/* let leastDuplicatedLettersBox = document.createElement("p");
 				leastDuplicatedLettersBox.innerHTML = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
 				document.getElementById("root").prepend(leastDuplicatedLettersBox); */
-				
-				if(leastDuplicatedLetters.length > 0) {
-					if(autoMode) {
-						inputWord = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
-						
+				if(autoMode) {
+					if(commonLeastDuplicatedLetters.length > 0) {
+						inputWord = commonLeastDuplicatedLetters[Math.floor(Math.random() * commonLeastDuplicatedLetters.length)].word;
+							
 						outputBox.innerHTML = inputWord;
 							
 						await wordlecupInputText(inputWord);
 						
 						await wordlecupCheckStatus();
+						
+						gameStatus = 5;
 					} else {
-						if(debugMode) {
-							outputBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
+						if(leastDuplicatedLetters.length > 0) {
+							inputWord = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
+							
+							outputBox.innerHTML = inputWord;
+								
+							await wordlecupInputText(inputWord);
+							
+							await wordlecupCheckStatus();
+							
+							gameStatus = 5;
 						} else {
-							let fewLeastDuplicatedLetters = await leastDuplicatedLetters.slice(0, 9);
+							let errorBox = document.createElement("p");
+							errorBox.innerHTML = "Critical Error: Cannot Find A Word";
+							document.getElementById("root").prepend(errorBox);
+						}
+					}
+				} else {
+					if(leastDuplicatedLetters.length > 0) {
+						combinedLeastDuplicatedLetters = await commonLeastDuplicatedLetters.concat(leastDuplicatedLetters);
+						if(debugMode) {
+							outputBox.innerHTML = JSON.stringify(combinedLeastDuplicatedLetters);
+						} else {
+							let fewLeastDuplicatedLetters = await combinedLeastDuplicatedLetters.slice(0, 9);
 							
 							/* for(let wordObject in fewLeastDuplicatedLetters) {
 								outputBox.innerHTML += `${fewLeastDuplicatedLetters[wordObject].word}, `;
@@ -318,12 +373,12 @@ var wordlecupProcess = async function() {
 							
 							await wordlecupCheckStatus();
 						}
+						gameStatus = 5;
+					} else {
+						let errorBox = document.createElement("p");
+						errorBox.innerHTML = "Critical Error: Cannot Find A Word";
+						document.getElementById("root").prepend(errorBox);
 					}
-					gameStatus = 5;
-				} else {
-					let errorBox = document.createElement("p");
-					errorBox.innerHTML = "Critical Error: Cannot Find A Word";
-					document.getElementById("root").prepend(errorBox);
 				}
 			}
 		}
@@ -518,29 +573,56 @@ var wordlecupCheckStatus = async function() {
 		
 		if(autoMode) {
 			await sortedDuplicatedLetters.splice(sortedDuplicatedLetters.indexOf(inputWord), 1)
+			await commonSortedDuplicatedLetters.splice(commonSortedDuplicatedLetters.indexOf(inputWord), 1)
 			await allWords[rowLength].splice(allWords[rowLength].indexOf(inputWord), 1)
+			await commonWords[rowLength].splice(commonWords[rowLength].indexOf(inputWord), 1)
 			
 			for (let i = 0; i < rowLength; i++) {
 				await interact["backspace"].click();
 			}
 			
-			leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 0);
-			if(leastDuplicatedLetters.length <= 0) {
-				leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 1);
+			if(sortedDuplicatedLetters.length > 0) {
+				leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 0);
 				if(leastDuplicatedLetters.length <= 0) {
-					leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 2);
+					leastDuplicatedLetters = await sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 1);
 					if(leastDuplicatedLetters.length <= 0) {
-						leastDuplicatedLetters = [sortedDuplicatedLetters[0]];
+						leastDuplicatedLetters = sortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 2);
+						if(leastDuplicatedLetters.length <= 0) {
+							leastDuplicatedLetters = [sortedDuplicatedLetters[0]];
+						}
 					}
 				}
+			} else {
+				leastDuplicatedLetters = [];
 			}
 			
-			if(leastDuplicatedLetters.length > 0) {
-				if(autoMode) {
-					let leastDuplicatedLettersBox = document.createElement("p");
-					leastDuplicatedLettersBox.innerHTML = JSON.stringify(sortedDuplicatedLetters);
-					document.getElementById("root").prepend(leastDuplicatedLettersBox);
+			if(commonSortedDuplicatedLetters.length > 0) {
+				commonLeastDuplicatedLetters = await commonSortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 0);
+				if(commonLeastDuplicatedLetters.length <= 0) {
+					commonLeastDuplicatedLetters = await commonSortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 1);
+					if(commonLeastDuplicatedLetters.length <= 0) {
+						commonLeastDuplicatedLetters = commonSortedDuplicatedLetters.filter(wordObject => wordObject.numDuplicatedLetters == 2);
+						if(commonLeastDuplicatedLetters.length <= 0) {
+							commonLeastDuplicatedLetters = [commonSortedDuplicatedLetters[0]];
+						}
+					}
+				}
+			} else {
+				commonLeastDuplicatedLetters = [];
+			}
+			
+			if(commonLeastDuplicatedLetters.length > 0) {
+				inputWord = commonLeastDuplicatedLetters[Math.floor(Math.random() * commonLeastDuplicatedLetters.length)].word;
 					
+				outputBox.innerHTML = inputWord;
+					
+				await wordlecupInputText(inputWord);
+				
+				await wordlecupCheckStatus();
+				
+				gameStatus = 5;
+			} else {
+				if(leastDuplicatedLetters.length > 0) {
 					inputWord = leastDuplicatedLetters[Math.floor(Math.random() * leastDuplicatedLetters.length)].word;
 					
 					outputBox.innerHTML = inputWord;
@@ -548,26 +630,13 @@ var wordlecupCheckStatus = async function() {
 					await wordlecupInputText(inputWord);
 					
 					await wordlecupCheckStatus();
+					
+					gameStatus = 5;
 				} else {
-					if(debugMode) {
-						let leastDuplicatedLettersBox = document.createElement("p");
-						leastDuplicatedLettersBox.innerHTML = JSON.stringify(leastDuplicatedLetters);
-						document.getElementById("root").prepend(leastDuplicatedLettersBox);
-					} else {
-						let fewLeastDuplicatedLetters = await leastDuplicatedLetters.slice(0, 9);
-						
-						/* for(let wordObject in fewLeastDuplicatedLetters) {
-							outputBox.innerHTML += `${fewLeastDuplicatedLetters[wordObject].word}, `;
-						} */
-						await fewLeastDuplicatedLetters.forEach(wordObject => outputBox.innerHTML += `${wordObject.word}, `);
-						
-						await wordlecupCheckStatus();
-					}
+					let errorBox = document.createElement("p");
+					errorBox.innerHTML = "Critical Error: Cannot Find A Word";
+					document.getElementById("root").prepend(errorBox);
 				}
-			} else {
-				let errorBox = document.createElement("p");
-				errorBox.innerHTML = "Critical Error: Cannot Find A Word";
-				document.getElementById("root").prepend(errorBox);
 			}
 		}
 	} else {
