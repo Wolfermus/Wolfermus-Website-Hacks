@@ -8,6 +8,10 @@ function sleep(ms){
 }
 
 if(typeof interact === 'undefined') {
+	alertBox = document.createElement("p");
+	alertBox.innerHTML = typeof interact;
+	document.getElementById("root").appendChild(alertBox);
+	
     var interact = {};
 	var allWords = {};
 	var commonWords = {};
