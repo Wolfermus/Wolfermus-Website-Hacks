@@ -8,9 +8,9 @@ function sleep(ms){
 }
 
 if(typeof interact === 'undefined') {
-	alertBox = document.createElement("p");
-	alertBox.innerHTML = typeof interact;
-	document.getElementById("root").appendChild(alertBox);
+	let testalertBox = document.createElement("p");
+	testalertBox.innerHTML = typeof interact;
+	document.getElementById("root").appendChild(testalertBox);
 	
     var interact = {};
 	var allWords = {};
