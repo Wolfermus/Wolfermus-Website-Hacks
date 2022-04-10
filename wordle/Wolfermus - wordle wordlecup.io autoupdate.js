@@ -7,9 +7,12 @@ function sleep(ms){
     })
 }
 
-
-try {
-	var interact = {};
+if(typeof interact === 'undefined') {
+	let testalertBox = document.createElement("p");
+	testalertBox.innerHTML = typeof interact;
+	document.getElementById("root").appendChild(testalertBox);
+	
+    var interact = {};
 	var allWords = {};
 	var commonWords = {};
 	var inValidWords = [];
@@ -43,12 +46,12 @@ try {
 
 	var inputWord = null;
 	var outputBox = null;
-} catch(e) {
-	console.log(e);
 }
+
 
 // document.getElementsByClassName("App-container")[0].style.height = "86vh";
 document.getElementsByClassName("App-container")[0].style.backgroundImage = "url(https://i.imgur.com/9Q9u9Qc.png)";
+
 
 if(debugMode) {
 	alertBox = document.createElement("p");
@@ -64,6 +67,7 @@ wlfContainer.classList.add("wlfContainer");
 document.getElementById("root").appendChild(wlfContainer);
 
 (async function(){
+	await sleep(100);
 	wlfContainer.innerHTML = await (await fetch(`${mainWordleURL}ui/ui.html`)).text();
 	
 	let wordleWlfStyleBox = await document.getElementById("wordle-wlf-style");
