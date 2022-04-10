@@ -4,6 +4,7 @@ const mainMenuURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Websi
 var mainWlfActive = true;
 
 var mainWlfAutoDetectBox = null;
+var mainWlfUlBox = null;
 var mainWlfCloseBox = null;
 
 var mainWlfContainer = document.createElement("div");
@@ -14,7 +15,11 @@ document.body.appendChild(mainWlfContainer);
 	if(!mainWlfActive) return;
 	mainWlfContainer.innerHTML = await (await fetch(`${mainMenuURL}ui/ui.html`)).text();
 	
+	let wlfStyleBox = await document.getElementById("wlf-style");
+	wlfStyleBox.innerHTML = await (await fetch(`${mainMenuURL}css/main.css`)).text();
+	
 	mainWlfAutoDetectBox = await document.getElementById("main-wlf-autodetect");
+	mainWlfUlBox = await document.querySelector(".main-wlf-ul");
 	mainWlfCloseBox = await document.getElementById("main-wlf-close");
 	
 	await mainWlfCloseBox.addEventListener("click", function() {
@@ -23,11 +28,15 @@ document.body.appendChild(mainWlfContainer);
 		return;
 	});
 	if(!mainWlfActive) return;
+
 	
-	mainWlfAutoDetectBox.innerHTML = window.location.href;
 	
-	if(window.location.href == "https://wordlecup.io") {
-		
+	if(window.location.href == "https://wordlecup.io/") {
+		mainWlfAutoDetectBox.innerHTML = "Please select a branch to load";
+		mainWlfUlBox.style.display = "block";
+		mainWlfUlBox.style.visibility = "visible";
+	} else {
+		mainWlfAutoDetectBox.innerHTML = "This Website Is Not Supported";
 	}
 	
 })();

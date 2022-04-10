@@ -59,7 +59,7 @@
 	color: #000;
 }
 
-.main-wlf-nav ul {
+.main-wlf-nav .main-wlf-ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -77,7 +77,7 @@
 	position: relative;
 }
 
-.main-wlf-nav ul li a {
+.main-wlf-nav .main-wlf-ul li a {
 	color: #444;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -85,11 +85,11 @@
 	cursor: pointer;
 }
 
-.main-wlf-nav ul li a:hover {
+.main-wlf-nav .main-wlf-ul li a:hover {
 	color: #000;
 }
 
-.main-wlf-nav ul li a::before {
+.main-wlf-nav .main-wlf-ul li a::before {
 	content: "";
 	display: block;
 	border-radius: 50%;
@@ -104,7 +104,7 @@
 	transition: all ease-in-out 250ms;
 }
 
-.main-wlf-nav ul li a::after {
+.main-wlf-nav .main-wlf-ul li a::after {
 	content: "";
 	display: block;
 	border-radius: 50%;
@@ -118,11 +118,11 @@
 	transition: all ease-in-out 250ms;
 }
 
-.main-wlf-nav ul li a:hover::before {
+.main-wlf-nav .main-wlf-ul li a:hover::before {
 	width: 100%;
 }
 
-.main-wlf-nav ul li a:hover::after {
+.main-wlf-nav .main-wlf-ul li a:hover::after {
 	width: 100%;
 }
 
