@@ -43,6 +43,7 @@ var responseArray = null;
 var inputWord = null;
 
 // document.getElementsByClassName("App-container")[0].style.height = "86vh";
+document.getElementsByClassName("App-container")[0].style.background-image = url(https://i.imgur.com/9Q9u9Qc.png);
 
 if(debugMode) {
 	alertBox = document.createElement("p");
