@@ -42,7 +42,7 @@ var responseArray = null;
 
 var inputWord = null;
 
-document.getElementsByClassName("App-container")[0].style.height = "86vh";
+// document.getElementsByClassName("App-container")[0].style.height = "86vh";
 
 if(debugMode) {
 	alertBox = document.createElement("p");
@@ -61,6 +61,9 @@ let outputBox = null;
 
 (async function(){
 	wlfContainer.innerHTML = await (await fetch(`${mainWordleURL}ui/ui.html`)).text();
+	
+	let wordleWlfStyleBox = await document.getElementById("wordle-wlf-style");
+	wordleWlfStyleBox.innerHTML = await (await fetch(`${mainWordleURL}css/main.css`)).text();
 	
 	outputBox = await document.getElementsByClassName("wlf-Output")[0];
 	

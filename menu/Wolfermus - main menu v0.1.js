@@ -35,8 +35,8 @@ document.body.appendChild(mainWlfContainer);
 	if(!mainWlfActive) return;
 	mainWlfContainer.innerHTML = await (await fetch(`${mainMenuURL}ui/ui.html`)).text();
 	
-	let wlfStyleBox = await document.getElementById("wlf-style");
-	wlfStyleBox.innerHTML = await (await fetch(`${mainMenuURL}css/main.css`)).text();
+	let mainWlfStyleBox = await document.getElementById("main-wlf-style");
+	mainWlfStyleBox.innerHTML = await (await fetch(`${mainMenuURL}css/main.css`)).text();
 	
 	mainWlfAutoDetectBox = await document.getElementById("main-wlf-autodetect");
 	mainWlfUlBox = await document.querySelector(".main-wlf-ul");
