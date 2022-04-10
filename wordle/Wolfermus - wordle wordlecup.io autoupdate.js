@@ -7,9 +7,8 @@ function sleep(ms){
     })
 }
 
-
-try {
-	var interact = {};
+if(typeof interact === 'undefined') {
+    var interact = {};
 	var allWords = {};
 	var commonWords = {};
 	var inValidWords = [];
@@ -43,8 +42,6 @@ try {
 
 	var inputWord = null;
 	var outputBox = null;
-} catch(e) {
-	console.log(e);
 }
 
 // document.getElementsByClassName("App-container")[0].style.height = "86vh";
@@ -64,6 +61,7 @@ wlfContainer.classList.add("wlfContainer");
 document.getElementById("root").appendChild(wlfContainer);
 
 (async function(){
+	await sleep(100);
 	wlfContainer.innerHTML = await (await fetch(`${mainWordleURL}ui/ui.html`)).text();
 	
 	let wordleWlfStyleBox = await document.getElementById("wordle-wlf-style");
