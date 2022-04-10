@@ -37,6 +37,11 @@
 	position: relative;
 }
 
+.main-wlf-modal-content h1 {
+	font-weight: 800;
+	font-size: 1.5em;
+}
+
 .wlf-logo {
 	width: 120px;
 	height: 120px;
@@ -54,7 +59,7 @@
 }
 
 .main-wlf-nav {
-	margin-top: 25px;
+	margin-top: 10px;
 	height: 100px;
 	color: #000;
 }
@@ -130,5 +135,18 @@
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 5px;
+	bottom: 15px;
+    font-size: small;
+}
+
+.main-wlf-modal-content footer a:link {
+  color: red;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.main-wlf-modal-content footer a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
 }
