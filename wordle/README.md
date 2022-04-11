@@ -91,7 +91,9 @@ then click **Add Extension**, paste the url link into the box, then click **Inst
 </details>
 
 ### Or You Can: Manually Inject Script
-
+<details><summary></summary>
+<p>
+	
 Copy and paste:
 ```
 let branch = "main";
@@ -104,7 +106,9 @@ Into your browser console by pressing `CTRL+SHIFT+J`
 
 
 ## Development Purposes
-
+<details><summary></summary>
+<p>
+	
 Copy and paste:
 ```
 var interact = {};
@@ -150,3 +154,9 @@ let branch = "dev";
 })(interact, allWords, commonWords, inValidWords, debugMode, autoMode, wordlecupActive, gameStatus, bypassGameStatus, currentRow, oldRow, rowLength, gameData, alertBox, sortedDuplicatedLetters, commonSortedDuplicatedLetters, commonLeastDuplicatedLetters, leastDuplicatedLetters, combinedLeastDuplicatedLetters, response, responseArray, inputWord, outputBox);
 ```
 Into your browser console by pressing `CTRL+SHIFT+J`
+
+</p>
+</details>
+	
+</p>
+</details>
