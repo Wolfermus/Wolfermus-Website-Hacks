@@ -110,6 +110,7 @@ document.getElementById("root").appendChild(wlfContainer);
 	if( /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 		wlfContainer.style.height = "40%";
 		wlfContainer.style.position = "initial";
+		document.getElementById("root").style.height = "1000px"
 	}
 	
 	document.getElementById("autoOutput").innerHTML = "Auto Mode [Disabled]";
