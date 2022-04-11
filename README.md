@@ -43,7 +43,7 @@ Click the button **Raw** located top right of where th code is located.
 </details>
 	
 #### Step 4: Click install user script
-<details><summary>Show Image</summary>
+<details><summary>Show Images</summary>
 <p>
 
 ![image](https://user-images.githubusercontent.com/32810568/162675426-0863863f-8a87-4af3-a4c5-f07defedf203.png)
