@@ -9,7 +9,7 @@ This Repo contains website hacks that i have created and wanted to share
 
 ## Auto Updated Menu Hack
 
-### Auto Inject Script
+### You Can Either: Auto Inject Script
 #### Step 1: Install a user script manager
 Known compatibles: 
 - Opera/Opera GX: [Tampermonkey](https://addons.opera.com/en-gb/extensions/details/tampermonkey-beta/) or [Violentmonkey](https://violentmonkey.github.io/get-it/) (Follow **Note** About **Opera users**)
@@ -34,7 +34,7 @@ Click the button **Raw** located top right of where th code is located.
 ![image](https://user-images.githubusercontent.com/32810568/162675605-89500e66-b90d-47fa-be30-2d1b796289ee.png)
 
 
-### Manually Inject Script
+### Or You Can: Manually Inject Script
 
 Copy and paste:
 ```
