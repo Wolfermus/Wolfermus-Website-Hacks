@@ -8,8 +8,7 @@ This Repo contains website hacks that i have created and wanted to share
 
 ## Auto Updated Menu Hack
 
-### You Can Either: Auto Inject Script
-<details><summary></summary>
+### You Can Either: Auto Inject Script <details><summary></summary>
 <p>
 
 #### We can hide anything, even code!
