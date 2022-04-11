@@ -2,9 +2,13 @@
 
 This Repo contains website hacks that i have created and wanted to share
 
+<br>
+
 ## Website Hacks
 
 - [wordle](wordle)
+
+<br>
 
 ## Auto Updated Menu Hack
 
@@ -13,7 +17,7 @@ This Repo contains website hacks that i have created and wanted to share
 <p>
 
 #### Step 1: Install a user script manager
-<details><summary></summary>
+<details><summary>Desktop</summary>
 <p>
 
 ##### Known compatibles: 
@@ -30,11 +34,29 @@ This Repo contains website hacks that i have created and wanted to share
 </p>
 </details>
 	
+<details><summary>Android</summary>
+<p>
+
+##### Known compatibles: 
+- Kiwi: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) or [Violentmonkey](https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag)
+
+
+##### Unknown compatibles: 
+- Firefox: [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/), [Tampermonkey](https://addons.mozilla.org/en-GB/firefox/addon/tampermonkey/) or [Violentmonkey](https://addons.mozilla.org/en-GB/firefox/addon/violentmonkey/)
+- Safari: [Tampermonkey](https://www.tampermonkey.net/?browser=safari) or [Userscripts](https://apps.apple.com/app/userscripts/id1463298887)
+- Microsoft Edge: [Tampermonkey](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
+- Maxthon: [Violentmonkey](https://extension.maxthon.com/detail/index.php?view_id=1680)
+	
+</p>
+</details>
+	
 <br>
 	
 #### Step 2: Goto the user script	
 [Wolfermus Menu Hack Insta Auto Update](menu/Wolfermus%20-%20main%20menu%20autoupdate%20insta.user.js)
 
+<br>
+	
 #### Step 3: Install the user script
 Click the button **Raw** located top right of where th code is located.
 <details><summary>Show Image</summary>
@@ -44,6 +66,8 @@ Click the button **Raw** located top right of where th code is located.
 
 </p>
 </details>
+	
+<br>
 	
 #### Step 4: Click install user script
 <details><summary>Show Images</summary>
@@ -59,7 +83,9 @@ Click the button **Raw** located top right of where th code is located.
 </details>
 
 ### Or You Can: Manually Inject Script
-
+<details><summary></summary>
+<p>
+	
 Copy and paste:
 ```
 let branch = "main";
@@ -69,3 +95,6 @@ let branch = "main";
 })();
 ```
 Into your browser console by pressing `CTRL+SHIFT+J`
+
+</p>
+</details>
