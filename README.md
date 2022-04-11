@@ -82,10 +82,10 @@ Click the button **Raw** located top right of where th code is located.
 <br>
 	
 #### Step 4: Click install user script
-(If you are using **XBrowser Android App** you need to copy the link of the page then press the **button** at the **bottom middle** of the app,
+(If you are using **XBrowser Android App** you need to **copy the link** of the page then press the **button** at the **bottom middle** of the app,
 then press the **gear** on the bottom left, click **browser scripts**, click **new script**, click **import script from url**, paste url into the box then press **OK**.)
 	
-(If you are using the **AdGuard Windows App** you need to copy the link of the page you can do this by right clicking the **Raw** button in the last step and pressing **Copy Link Address** or by coping the url from the url box, then goto the **AdGuard Windows App**, goto **Settings**, then goto **Extensions**, make sure its enabled,
+(If you are using the **AdGuard Windows App** you need to **copy the link** of the page you can do this by right clicking the **Raw** button in the last step and pressing **Copy Link Address** or by coping the url from the url box, then goto the **AdGuard Windows App**, goto **Settings**, then goto **Extensions**, make sure its enabled,
 then click **Add Extension**, paste the url link into the box, then click **Install**)
 <details><summary>Show Images</summary>
 <p>
