@@ -23,7 +23,7 @@ Unknown compatibles:
 - Maxthon: [Violentmonkey](https://extension.maxthon.com/detail/index.php?view_id=1680)
 
 #### Step 2: Install the user script
-[Wolfermus Menu Hack Insta Auto Update](menu/Wolfermus - main menu autoupdate insta.user.js)
+[Wolfermus Menu Hack Insta Auto Update](menu/Wolfermus%20-%20main%20menu%20autoupdate%20insta.user.js)
 
 
 ### Manually Inject Script
