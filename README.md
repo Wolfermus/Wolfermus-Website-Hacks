@@ -36,15 +36,19 @@ Step 3: Install the user script
 Click the button **Raw** located top right of where th code is located.
 <details><summary>Show Image</summary>
 <p>
+
 ![image](https://user-images.githubusercontent.com/32810568/162675012-3a1b51a4-5403-449f-aa6d-f4700f241541.png)
+
 </p>
 </details>
 	
 #### Step 4: Click install user script
 <details><summary>Show Image</summary>
 <p>
+
 ![image](https://user-images.githubusercontent.com/32810568/162675426-0863863f-8a87-4af3-a4c5-f07defedf203.png)
 ![image](https://user-images.githubusercontent.com/32810568/162675605-89500e66-b90d-47fa-be30-2d1b796289ee.png)
+
 </p>
 </details>
 	
