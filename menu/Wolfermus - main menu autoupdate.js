@@ -70,6 +70,8 @@ var mainBranchBox = null;
 var testingBranchBox = null;
 var devBranchBox = null;
 
+var mainWlfModalContentBox = null;
+
 var wlfGame = null;
 var wlfUrl = null;
 
@@ -92,6 +94,12 @@ document.body.appendChild(mainWlfContainer);
 	mainBranchBox = await document.getElementById("main-branch");
 	testingBranchBox = await document.getElementById("testing-branch");
 	devBranchBox = await document.getElementById("dev-branch");
+	
+	mainWlfModalContentBox = await document.querySelector(".main-wlf-modal-content");
+	
+	if( /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		mainWlfModalContentBox.style.height = "80%";
+	}
 	
 	
 	await mainWlfCloseBox.addEventListener("click", function() {
