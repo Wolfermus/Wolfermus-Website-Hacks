@@ -105,6 +105,11 @@ document.getElementById("root").appendChild(wlfContainer);
 	
 	outputBox = await document.getElementsByClassName("wlf-Output")[0];
 	
+	if( /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		wlfContainer.style.height = "40%";
+		wlfContainer.style.position = "initial";
+	}
+	
 	document.getElementById("autoOutput").innerHTML = "Auto Mode [Disabled]";
 	document.getElementById("debugOutput").innerHTML = "Debug Mode [Disabled]";
 	document.getElementById("autoOutput").addEventListener("click", function() {
