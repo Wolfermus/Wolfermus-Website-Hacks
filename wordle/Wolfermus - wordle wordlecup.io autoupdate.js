@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Wolfermus Website Hacks: Auto Updated Wordle Wordcup Hack
+// @name         Wolfermus Website Hacks: Main Auto Updated Wordle Wordcup Hack
 // @namespace    https://greasyfork.org/en/users/900467-feb199
 // @version      0.1.1
 // @description  This script is a hack for wordle on wordlecup.io
