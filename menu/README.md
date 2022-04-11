@@ -91,7 +91,9 @@ then click **Add Extension**, paste the url link into the box, then click **Inst
 </details>
 
 ### Or You Can: Manually Inject Script
-
+<details><summary></summary>
+<p>
+	
 Copy and paste:
 ```
 let branch = "main";
@@ -101,3 +103,6 @@ let branch = "main";
 })();
 ```
 Into your browser console by pressing `CTRL+SHIFT+J`
+
+</p>
+</details>
