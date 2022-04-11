@@ -24,6 +24,7 @@ This Repo contains website hacks that i have created and wanted to share
 - Opera/Opera GX: [Tampermonkey](https://addons.opera.com/en-gb/extensions/details/tampermonkey-beta/) or [Violentmonkey](https://violentmonkey.github.io/get-it/) (Follow **Note** About **Opera users**)
 - Firefox: [Tampermonkey](https://addons.mozilla.org/en-GB/firefox/addon/tampermonkey/) or [Violentmonkey](https://addons.mozilla.org/en-GB/firefox/addon/violentmonkey/)
 - Chrome: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) or [Violentmonkey](https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag)
+- AdGuard: [Comes Installed With A User Script Manager](https://adguard.com/en/adguard-windows/overview.html) (Yes you need the **for windows** not the extension)
 
 ##### Unknown compatibles: 
 - Firefox: [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/)
@@ -39,13 +40,24 @@ This Repo contains website hacks that i have created and wanted to share
 
 ##### Known compatibles: 
 - Kiwi: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) or [Violentmonkey](https://chrome.google.com/webstore/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag)
-
+- XBrowser: [Comes Installed With A User Script Manager](https://play.google.com/store/apps/details?id=com.xbrowser.play)
 
 ##### Unknown compatibles: 
+- AdGuard: [Comes Installed With A User Script Manager](https://adguard.com/en/adguard-android/overview.html) (Altho to use the User Script Manager you need the pro version of the app which either you can pay for or get a limited time trial)
 - Firefox: [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/), [Tampermonkey](https://addons.mozilla.org/en-GB/firefox/addon/tampermonkey/) or [Violentmonkey](https://addons.mozilla.org/en-GB/firefox/addon/violentmonkey/)
+	
+</p>
+</details>
+	
+<details><summary>iOS</summary>
+<p>
+
+##### Known compatibles: 
+
+##### Unknown compatibles: 
 - Safari: [Tampermonkey](https://www.tampermonkey.net/?browser=safari) or [Userscripts](https://apps.apple.com/app/userscripts/id1463298887)
-- Microsoft Edge: [Tampermonkey](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
-- Maxthon: [Violentmonkey](https://extension.maxthon.com/detail/index.php?view_id=1680)
+- AdGuard: [Comes Installed With A User Script Manager](https://adguard.com/en/adguard-ios/overview.html) (Altho to use the User Script Manager you need the pro version of the app which either you can pay for or get a limited time trial)
+- Firefox: [Greasemonkey](https://addons.mozilla.org/en-GB/firefox/addon/greasemonkey/), [Tampermonkey](https://addons.mozilla.org/en-GB/firefox/addon/tampermonkey/) or [Violentmonkey](https://addons.mozilla.org/en-GB/firefox/addon/violentmonkey/)
 	
 </p>
 </details>
@@ -70,6 +82,11 @@ Click the button **Raw** located top right of where th code is located.
 <br>
 	
 #### Step 4: Click install user script
+(If you are using **XBrowser Android App** you need to **copy the link** of the page then press the **button** at the **bottom middle** of the app,
+then press the **gear** on the bottom left, click **browser scripts**, click **new script**, click **import script from url**, paste url into the box then press **OK**.)
+	
+(If you are using the **AdGuard Windows App** you need to **copy the link** of the page you can do this by **right clicking** the **Raw** button in the last step and pressing **Copy Link Address** or by **copying the url** from the url box, then goto the **AdGuard Windows App**, goto **Settings**, then goto **Extensions**, make sure its enabled,
+then click **Add Extension**, paste the url link into the box, then click **Install**)
 <details><summary>Show Images</summary>
 <p>
 
