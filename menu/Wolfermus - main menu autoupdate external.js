@@ -6,7 +6,7 @@
 // @author       Feb199/Dannysmoka
 // @homepageURL  https://github.com/Wolfermus/Wolfermus-Website-Hacks
 // @supportURL   https://github.com/Wolfermus/Wolfermus-Website-Hacks/issues
-// @license GPLv3
+// @license		 GPLv3
 
 // @match        https://wordlecup.io/
 
