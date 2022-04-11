@@ -35,7 +35,6 @@ This Repo contains website hacks that i have created and wanted to share
 [Wolfermus Menu Hack Insta Auto Update](menu/Wolfermus%20-%20main%20menu%20autoupdate%20insta.user.js)
 
 </p>
-</details>
 
 <details><summary>Step 3: Install the user script</summary>
 <p>
