@@ -7,8 +7,6 @@
 // @homepageURL  https://github.com/Wolfermus/Wolfermus-Website-Hacks
 // @supportURL   https://github.com/Wolfermus/Wolfermus-Website-Hacks/issues
 // @license GPLv3
-// @updateURL    https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/Wolfermus%20-%20main%20menu%20autoupdate.js
-// @downloadURL  https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/Wolfermus%20-%20main%20menu%20autoupdate.js
 
 // @match        https://wordlecup.io/
 
@@ -25,7 +23,7 @@ const mainBlob = "decd79ed348afcecdea5c976297e02c1a7df2f0c";
 const testingBlob = "a0d5fc34d4addb3d108d41afd88fae0d91ecad07";
 const devBlob = "a0d5fc34d4addb3d108d41afd88fae0d91ecad07";
 
-/* const wlfUi = `https://greasyfork.org/scripts/443151-wolfermus-website-hacks-main-menu-ui-html/code/Wolfermus%20Website%20Hacks:%20Main%20Menu%20uihtml.user.css`;
+const wlfUi = `https://greasyfork.org/scripts/443151-wolfermus-website-hacks-main-menu-ui-html/code/Wolfermus%20Website%20Hacks:%20Main%20Menu%20uihtml.user.css`;
 const wlfCss = `https://greasyfork.org/scripts/443150-wolfermus-website-hacks-main-menu-main-css/code/Wolfermus%20Website%20Hacks:%20Main%20Menu%20maincss.user.css`;
 const wlfGameUrls = {
 	"wordle": {
@@ -35,10 +33,10 @@ const wlfGameUrls = {
 			"dev": `https://gitcdn.xyz/cdn/Wolfermus/Wolfermus-Website-Hacks/${devBlob}/wordle/Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js`
 		}
 	}
-} */
+}
 
 
-const mainMenuURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/";
+/* const mainMenuURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/";
 const wwhURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/";
 const wlfUi = `${mainMenuURL}ui/ui.html`;
 const wlfCss = `${mainMenuURL}css/main.css`;
@@ -50,7 +48,7 @@ const wlfGameUrls = {
 			"dev": `${wwhURL}dev/wordle/Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js`
 		}
 	}
-}
+} */
 
 function sleep(ms){
     return new Promise(resolve=>{
