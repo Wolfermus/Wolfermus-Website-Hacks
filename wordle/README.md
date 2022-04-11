@@ -56,7 +56,7 @@
 <br>
 	
 #### Step 2: Goto the user script	
-[Wolfermus Menu Hack Insta Auto Update](Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js)
+[Wolfermus Wordle Hack Insta Auto Update](Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate%20insta.user.js)
 
 <br>
 	
