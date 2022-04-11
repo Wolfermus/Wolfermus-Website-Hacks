@@ -14,7 +14,7 @@ Unknown compatibles:
 - Maxthon: [Violentmonkey](https://extension.maxthon.com/detail/index.php?view_id=1680)
 
 #### Step 2: Goto the user script
-[Wolfermus Menu Hack Insta Auto Update](Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate%20insta.user.js)
+[Wolfermus Wordle Hack Insta Auto Update](Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate%20insta.user.js)
 
 #### Step 3: Install the user script
 Click the button **Raw** located top right of where th code is located.
