@@ -1,5 +1,7 @@
 # Wolfermus Wordle Hack
 
+## Auto Updated Wordle Hack
+
 ### You Can Either: Auto Inject Script
 #### Step 1: Install a user script manager
 Known compatibles: 
