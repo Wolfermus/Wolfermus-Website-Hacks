@@ -2,7 +2,7 @@
 // @name         Wolfermus Website Hacks: Insta Auto Updated Menu Hack
 // @namespace    https://greasyfork.org/en/users/900467-feb199
 // @version      0.1.1
-// @description  This script contains website hacks that i have created and wanted to share
+// @description  This script contains website hacks that i have created and wanted to share: Wordle [wordlecup.io]
 // @author       Feb199/Dannysmoka
 // @homepageURL  https://github.com/Wolfermus/Wolfermus-Website-Hacks
 // @supportURL   https://github.com/Wolfermus/Wolfermus-Website-Hacks/issues
