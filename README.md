@@ -20,6 +20,7 @@ This Repo contains website hacks that i have created and wanted to share
 
 </p>
 </details>
+
 #### Step 1: Install a user script manager
 Known compatibles: 
 - Opera/Opera GX: [Tampermonkey](https://addons.opera.com/en-gb/extensions/details/tampermonkey-beta/) or [Violentmonkey](https://violentmonkey.github.io/get-it/) (Follow **Note** About **Opera users**)
