@@ -1,10 +1,5 @@
 # Wolfermus Menu Hack
 
-## Website Hacks
-
-- [pseudoSkandBrand](pseudoSkandBrand)
-- [wordle](wordle)
-
 ## Auto Updated Menu Hack
 
 ### You Can Either: Auto Inject Script
