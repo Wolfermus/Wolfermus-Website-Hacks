@@ -1,5 +1,4 @@
 <----|To-Do|---->
-Center UI to avoid everything from moving or jittering when enabling and disabling stuff.
 When enabling automode if there isent a word inputted yet then input one.
 
 
@@ -12,3 +11,4 @@ Remove invalid words automatically from github
 <----|Done|---->
 [Done] Add to show most common words aswell.
 [Done] With automode pick most common words first with least duplicates then show least duplicates.
+[Done] Center UI to avoid everything from moving or jittering when enabling and disabling stuff.
