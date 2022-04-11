@@ -220,7 +220,7 @@ var wordlecupProcess = async function() {
 				if(gameData.lettersAbsent.length > 0) {
 					for(let lettersAbsentLetterPos in gameData.lettersAbsent) {
 						lettersAbsentLetterPos = parseInt(lettersAbsentLetterPos);
-						lettersAbsentLetter = gameData.lettersAbsent[lettersAbsentLetterPos];
+						let lettersAbsentLetter = gameData.lettersAbsent[lettersAbsentLetterPos];
 						let tempCopy = [...gameData.words];
 						
 						for(let wordPos in tempCopy) {
