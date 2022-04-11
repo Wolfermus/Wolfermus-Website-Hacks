@@ -102,7 +102,10 @@ let branch = "main";
 	await eval(autoUpdate);
 })();
 ```
-Into your browser console by pressing `CTRL+SHIFT+J`
+Into your browser console by pressing:
+- Opera/Opera GX: `CTRL+SHIFT+J`
+- Chrome: `CTRL+SHIFT+J`
+- Firefox: `CTRL+SHIFT+I` (Then Goto Console)
 
 
 ## Development Purposes
@@ -153,7 +156,10 @@ let branch = "dev";
 	await eval(autoUpdate);
 })(interact, allWords, commonWords, inValidWords, debugMode, autoMode, wordlecupActive, gameStatus, bypassGameStatus, currentRow, oldRow, rowLength, gameData, alertBox, sortedDuplicatedLetters, commonSortedDuplicatedLetters, commonLeastDuplicatedLetters, leastDuplicatedLetters, combinedLeastDuplicatedLetters, response, responseArray, inputWord, outputBox);
 ```
-Into your browser console by pressing `CTRL+SHIFT+J`
+Into your browser console by pressing:
+- Opera/Opera GX: `CTRL+SHIFT+J`
+- Chrome: `CTRL+SHIFT+J`
+- Firefox: `CTRL+SHIFT+I` (Then Goto Console)
 
 </p>
 </details>
