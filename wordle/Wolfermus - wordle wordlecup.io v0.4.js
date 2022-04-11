@@ -1,5 +1,16 @@
+/* const mainWordleWordBankURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/wordBank/";
+
+const wlfWordleUi = `https://greasyfork.org/scripts/443155-wolfermus-website-hacks-main-wordle-ui-html/code/Wolfermus%20Website%20Hacks:%20Main%20Wordle%20uihtml.user.css`;
+const wlfWordleCss = `https://greasyfork.org/scripts/443154-wolfermus-website-hacks-main-wordle-main-css/code/Wolfermus%20Website%20Hacks:%20Main%20Wordle%20maincss.user.css`;
+const wlfWordleAllWordsUrl = `${mainWordleWordBankURL}wordleWordleCupAllWords.txt`;
+const wlfWordleCommonWordsUrl = `${mainWordleWordBankURL}wordleWordleCupCommonWords.txt` */
+
 const mainWordleURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/";
 const mainWordleWordBankURL = "https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/wordBank/";
+const wlfWordleUi = `${mainWordleURL}ui/ui.html`;
+const wlfWordleCss = `${mainWordleURL}css/main.css`;
+const wlfWordleAllWordsUrl = `${mainWordleWordBankURL}wordleWordleCupAllWords.txt`;
+const wlfWordleCommonWordsUrl = `${mainWordleWordBankURL}wordleWordleCupCommonWords.txt`;
 
 function sleep(ms){
     return new Promise(resolve=>{
@@ -68,10 +79,10 @@ document.getElementById("root").appendChild(wlfContainer);
 
 (async function(){
 	await sleep(100);
-	wlfContainer.innerHTML = await (await fetch(`${mainWordleURL}ui/ui.html`)).text();
+	wlfContainer.innerHTML = await (await fetch(wlfWordleUi)).text();
 	
 	let wordleWlfStyleBox = await document.getElementById("wordle-wlf-style");
-	wordleWlfStyleBox.innerHTML = await (await fetch(`${mainWordleURL}css/main.css`)).text();
+	wordleWlfStyleBox.innerHTML = await (await fetch(wlfWordleCss)).text();
 	
 	outputBox = await document.getElementsByClassName("wlf-Output")[0];
 	
@@ -101,7 +112,7 @@ document.getElementById("root").appendChild(wlfContainer);
 	});
 	
 	
-	response = await (await fetch(`${mainWordleWordBankURL}wordleWordleCupAllWords.txt`)).text();
+	response = await (await fetch(wlfWordleAllWordsUrl)).text();
 	responseArray = await response.toString().split("\n");
 	allWords[4] = await responseArray.filter(word => word.length == 4);
 	allWords[5] = await responseArray.filter(word => word.length == 5);
@@ -109,7 +120,7 @@ document.getElementById("root").appendChild(wlfContainer);
 	allWords[7] = await responseArray.filter(word => word.length == 7);
 	allWords[8] = await responseArray.filter(word => word.length == 8);
 	
-	response = await (await fetch(`${mainWordleWordBankURL}wordleWordleCupCommonWords.txt`)).text();
+	response = await (await fetch(wlfWordleCommonWordsUrl)).text();
 	responseArray = await response.toString().split("\n");
 	commonWords[4] = await responseArray.filter(word => word.length == 4);
 	commonWords[5] = await responseArray.filter(word => word.length == 5);
