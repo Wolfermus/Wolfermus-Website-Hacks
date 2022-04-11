@@ -9,6 +9,17 @@ This Repo contains website hacks that i have created and wanted to share
 ## Auto Updated Menu Hack
 
 ### You Can Either: Auto Inject Script
+<details><summary>You Can Either: Auto Inject Script</summary>
+<p>
+
+#### We can hide anything, even code!
+
+    ```ruby
+      puts "Hello World"
+    ```
+
+</p>
+</details>
 #### Step 1: Install a user script manager
 Known compatibles: 
 - Opera/Opera GX: [Tampermonkey](https://addons.opera.com/en-gb/extensions/details/tampermonkey-beta/) or [Violentmonkey](https://violentmonkey.github.io/get-it/) (Follow **Note** About **Opera users**)
