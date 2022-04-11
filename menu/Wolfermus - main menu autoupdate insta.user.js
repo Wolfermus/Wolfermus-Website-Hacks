@@ -7,8 +7,8 @@
 // @homepageURL  https://github.com/Wolfermus/Wolfermus-Website-Hacks
 // @supportURL   https://github.com/Wolfermus/Wolfermus-Website-Hacks/issues
 // @license      GPLv3
-// @updateURL    https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/Wolfermus%20-%20main%20menu%20autoupdate%20insta.js
-// @downloadURL  https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/Wolfermus%20-%20main%20menu%20autoupdate%20insta.js
+// @updateURL    https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/Wolfermus%20-%20main%20menu%20autoupdate%20insta.user.js
+// @downloadURL  https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/menu/Wolfermus%20-%20main%20menu%20autoupdate%20insta.user.js
 
 // @match        https://wordlecup.io/
 
