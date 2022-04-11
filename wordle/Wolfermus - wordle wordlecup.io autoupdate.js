@@ -6,7 +6,7 @@
 // @author       Feb199/Dannysmoka
 // @homepageURL  https://github.com/Wolfermus/Wolfermus-Website-Hacks
 // @supportURL   https://github.com/Wolfermus/Wolfermus-Website-Hacks/issues
-// @license		 GPLv3
+// @license      GPLv3
 // @updateURL    https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js
 // @downloadURL  https://raw.githubusercontent.com/Wolfermus/Wolfermus-Website-Hacks/main/wordle/Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js
 

@@ -1,3 +1,12 @@
+// @name         Wolfermus Website Hacks: Testing Auto Updated Wordle Wordcup Hack
+// @description  [Version: Testing Branch] This script is a hack for wordle on wordlecup.io
+
+// @name         Wolfermus Website Hacks: Development Auto Updated Wordle Wordcup Hack
+// @description  [Version: Dev Branch] This script is a hack for wordle on wordlecup.io
+
+
+
+
 document.querySelectorAll('[role="alert"]')[0]
 states
 
