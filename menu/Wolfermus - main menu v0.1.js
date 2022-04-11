@@ -1,15 +1,11 @@
-const mainBlob = "decd79ed348afcecdea5c976297e02c1a7df2f0c";
-const testingBlob = "a0d5fc34d4addb3d108d41afd88fae0d91ecad07";
-const devBlob = "a0d5fc34d4addb3d108d41afd88fae0d91ecad07";
-
 /* const wlfUi = `https://greasyfork.org/scripts/443151-wolfermus-website-hacks-main-menu-ui-html/code/Wolfermus%20Website%20Hacks:%20Main%20Menu%20uihtml.user.css`;
 const wlfCss = `https://greasyfork.org/scripts/443150-wolfermus-website-hacks-main-menu-main-css/code/Wolfermus%20Website%20Hacks:%20Main%20Menu%20maincss.user.css`;
 const wlfGameUrls = {
 	"wordle": {
 		"wordlecup.io": {
-			"main": `https://gitcdn.xyz/cdn/Wolfermus/Wolfermus-Website-Hacks/${mainBlob}/wordle/Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js`,
-			"testing": `https://gitcdn.xyz/cdn/Wolfermus/Wolfermus-Website-Hacks/${testingBlob}/wordle/Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js`,
-			"dev": `https://gitcdn.xyz/cdn/Wolfermus/Wolfermus-Website-Hacks/${devBlob}/wordle/Wolfermus%20-%20wordle%20wordlecup.io%20autoupdate.js`
+			"main": `https://greasyfork.org/scripts/443156-wolfermus-website-hacks-main-auto-updated-wordle-wordcup-hack/code/Wolfermus%20Website%20Hacks:%20Main%20Auto%20Updated%20Wordle%20Wordcup%20Hack.user.js`,
+			"testing": `https://greasyfork.org/scripts/443158-wolfermus-website-hacks-testing-auto-updated-wordle-wordcup-hack/code/Wolfermus%20Website%20Hacks:%20Testing%20Auto%20Updated%20Wordle%20Wordcup%20Hack.user.js`,
+			"dev": `https://greasyfork.org/scripts/443159-wolfermus-website-hacks-development-auto-updated-wordle-wordcup-hack/code/Wolfermus%20Website%20Hacks:%20Development%20Auto%20Updated%20Wordle%20Wordcup%20Hack.user.js`
 		}
 	}
 } */
